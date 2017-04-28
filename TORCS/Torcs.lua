@@ -24,7 +24,7 @@ function Torcs:_init(opts)
 	self.nowStep = 0
 
 	local temp = package.cpath
-	package.cpath = package.cpath .. ";?.so"
+	package.cpath = package.cpath .. ";TORCS/?.so"
 	self.ctrl = require 'TORCSctrl'
 	package.cpath = temp
 

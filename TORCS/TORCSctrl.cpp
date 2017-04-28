@@ -533,10 +533,3 @@ int luaopen_TORCSctrl(lua_State *L){
     luaL_register(L, "TORCSctrl", myLib);
     return 1;
 }
-
-
-
-// conpile:
-// g++ TORCSctrl.cpp -fPIC -shared -o TORCSctrl.so -I/Users/youyurong/torch/install/include -L/Users/youyurong/torch/install/lib -lluajit -g
-// in Ubuntu
-// g++ TORCSctrl.cpp -fPIC -shared -o TORCSctrl.so -I/home/ficos/torch/install/include -L/home/ficos/torch/install/lib -lluajit -g

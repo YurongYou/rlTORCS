@@ -684,24 +684,6 @@ ReOneStep(double deltaTimeIncrement)
 		pfrontDist = pfrontDist_ghost;
      }
 /////////////////////////// by Yurong
-/////////////////////////// by Yurong, output 1 image per 0.1 second
-     // if (ReInfo->s->currentTime >= 0)
-     // {
-     //    count++;
-     //    if (count>100)
-     //    {
-     //       count=1;
-     //       // glReadBuffer(GL_COLOR_ATTACHMENT0);
-     //       glReadPixels(0, 0, image_width, image_height, GL_RGB, GL_UNSIGNED_BYTE, (GLvoid*)pdata);
-     //       *pwritten=1;
-
-     //       	while (*pwritten == 1){
-     //       		usleep(1);
-     //       		// printf("waiting!!\n");
-     //       	}
-     //    }
-     // }
-/////////////////////////// by Yurong, output 1 image per 0.1 second
 	int i;
 	tRobotItf *robot;
 	tSituation *s = ReInfo->s;
@@ -710,7 +692,7 @@ ReOneStep(double deltaTimeIncrement)
 	static int zombieID = -1;
 	if (zombieID < 0){
 		for (i = 0; i < s->_ncars; i++)
-			if (strcmp(s->cars[i]->_name, "chenyi") == 0) zombieID = i;
+			if (strncmp(s->cars[i]->_name, "ficos", 5) == 0) zombieID = i;
 		if (zombieID < 0) zombieID = s->_ncars + 1;
 	}
 /////////////////////////// end by Yurong

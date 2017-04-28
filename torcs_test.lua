@@ -36,6 +36,7 @@ local atomic = tds.AtomicCounter()
 atomic:set(1)
 num = 1
 
+
 ctrlpool:addjob(setupLogging)
 ctrlpool:addjob(
 	function ()
@@ -50,11 +51,10 @@ ctrlpool:addjob(
 		end)
 	end)
 
-
 ctrlpool:addjob(
 	function ()
 		local temp = package.cpath
-		package.cpath = package.cpath .. ";../?.so"
+		package.cpath = package.cpath .. ";TORCS/?.so"
 	    ctrl = require 'TORCSctrl'
 	    package.cpath = temp
 
@@ -76,7 +76,7 @@ local function test()
 	counting = 1
 	repeat
 		repeat
-			reward, observation, terminal = env:step({0.1, -0.1})
+			reward, observation, terminal = env:step(2)
 			nowstep = nowstep + 1
 			if term:get() < 0 then
 				env:cleanUp()
@@ -95,15 +95,13 @@ end
 
 game = threads.Threads(num,
 	function (id)
-		temp = package.path
-		package.path = package.path .. ";../?.lua"
-		TORCS = require 'TORCS.TorcsContinuous'
-		package.path = temp
+		TORCS = require 'TORCS.TorcsDiscrete'
 		opt = {}
 		opt.mkey = id
 		opt.server = false
-		opt.game_config = 'quickrace_continuous_single_ushite-city.xml'
+		opt.game_config = 'quickrace_discrete_single_ushite-city.xml'
 		term = atomic
+
 		local image = require 'image'
 	end,
 	function ()

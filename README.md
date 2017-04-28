@@ -153,10 +153,10 @@ You can pass a table to the environment to configure the racing car environment:
 * `auto_back`: bool value,  set `false` to disable the car's ability to reverse its gear (for going backward)
 
 ### Multithread example
-see `torcs_test.lua`
+See `torcs_test.lua`.
 
 ### Action Space
-We provide environments with two different action spaces. Note that different action space should choose different type of game configurations respectively (see Further Customization section below for explanations on game configuration).
+We provide environments with two different action spaces. Note that different action space should choose different type of game configurations respectively (see [Further Customization](https://github.com/YurongYou/rlTORCS#optional-further-customization) section below for explanations on game configuration).
 
 In original torcs, the driver can have controls on four different actions:
 
@@ -165,7 +165,7 @@ In original torcs, the driver can have controls on four different actions:
 * **steer**: a real value ranging from `[-1, 1]`. `-1` for full left-turn, `1` for full right-turn
 * **gear**:	a integer ranging from `[-1, 6]`. `-1` for going backward.
 
-The following is my customization, you can customize the action space by yourself (see Further Customization section).
+The following is my customization, you can customize the action space by yourself (see [Further Customization](https://github.com/YurongYou/rlTORCS#optional-further-customization) section).
 
 #### Discrete Action Space (`TORCS/TorcsDiscrete.lua`)
 This environment has a discrete action space:
@@ -207,18 +207,53 @@ There are two dimensions of continuous actions in this environment:
 * There are hard-coded ABS and ASR strategies on corresponding drivers
 * gear changes automatically
 
+### Tracks
+
+
+## System Explanation in a Nutshell
+In this section, we briefly explain how the racing car environment works.
+
+In TORCS environment, when the game is running, it actually maintains a state machine (see `torcs-1.3.6/src/libs/raceengineclient/racestate.cpp`). On each update of the the state (in `500` Hz), the underlying physical states are updated (e.g. update each cars' speed according to its previous speed and acceleration, etc.), and in `50` Hz, each of car drivers is queried for actions. Drivers can have access to a variety of information (e.g. speed, distance, etc.) to decide what action it will take (i.e. decide the value of `throttle`, `brake`, `steer`, `gear`, etc.). You can refer to [this](http://www.berniw.org/tutorials/robot/tutorial.html) on how to customize drivers.
+
+### Agent-Environment Communication
+To make it possible to run RL model in torch or python, we use memory sharing method to set up IPC between the environment and the model (thanks to [DeepDriving from Princeton](http://deepdriving.cs.princeton.edu/)).
+
+Once the environment is set up, it will request a portion of shared memory using the given `mkey`. If the RL agent running in another process also requests a portion of shared memory of the same size with the same `mkey`, then it can see the information written by the customized driver in TORCS.
+
+The customized driver can regularly write information about the current racing status into that memory, and wait for the agent for its action (also, write in different part of that memory). Those information can be
+
+* **current first-person view from the driver**
+* the speed of the car
+* the angle between the car and the tangent of the track
+* current amount of damage
+* the distance between the center of the car and the center of the track
+* total distance raced
+* the radius of the track segment
+* the distance between the car and the nearest car in front of it
+...
+
+and it can be customized if more information is needed.
+
+## Training results
+Here we show the training result of running a A3C model ([Asynchronous Methods for Deep Reinforcement Learning](http://arxiv.org/abs/1602.01783)) on our customized environment.
+
+![](./assets/training_result)
 
 
 
-## [Optional] System Explanation
+## [Optional] Further Customization
+In this section, I explain how I modify the environment. If you are not intended to further customize the environment, you can just skip this section.
 
-
-
-## [Optional] For Further Customization
+### Skip the GUI MANU
+### Memory Sharing Detail
+### Obtain the First Person View
+### Customize the Race
+### Visual Input Semantic Segmentation
 
 ## Reference 
 * [DeepDriving from Princeton](http://deepdriving.cs.princeton.edu/): the memory sharing scheme of this training environment is the same with this project.
 * [Custom RL environment](https://github.com/Kaixhin/rlenvs#api)
 * [Implementations of Several Deep Reinforcement Learning Algorithm](https://github.com/Kaixhin/Atari)
+* [Asynchronous Methods for Deep Reinforcement Learning](http://arxiv.org/abs/1602.01783)  
 
 
