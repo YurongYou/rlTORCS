@@ -235,11 +235,18 @@ The customized driver can regularly write information about the current racing s
 and it can be customized if more information is needed.
 
 ## Training results
-Here we show the training result of running a A3C model ([Asynchronous Methods for Deep Reinforcement Learning](http://arxiv.org/abs/1602.01783)) on our customized environment.
+Here we show a training result of running a typical A3C model ([Asynchronous Methods for Deep Reinforcement Learning](http://arxiv.org/abs/1602.01783)) on our customized environment.
 
-![](./assets/training_result)
+![](https://raw.githubusercontent.com/YurongYou/rlTORCS/master/assets/training_result.png?token=AM-ptbmmeTQxIXNEj7UaI04oMkW1B_tZks5ZDHwwwA%3D%3D)
 
+Details about the test:
 
+* game_config: `quickrace_discrete_slowmulti_ushite-city.xml`
+* environment: `TorcsDiscreteConstDamagePos`
+* auto_back: `false`
+* threads: `12`
+* total steps: `2e7`
+* observation: gray scale visual input with resizing (`84x84`)
 
 ## [Optional] Further Customization
 In this section, I explain how I modify the environment. If you are not intended to further customize the environment, you can just skip this section.
