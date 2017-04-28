@@ -74,9 +74,9 @@ local TorcsDiscrete = require 'TORCS.TorcsDiscrete'
 local opt = {}
 opt.server = false
 opt.game_config = 'quickrace_discrete_single_ushite-city.xml'
-opts.use_RGB = false
-opts.mkey = 817
-opts.auto_back = false
+opt.use_RGB = false
+opt.mkey = 817
+opt.auto_back = false
 
 local env = TorcsDiscrete(opt)
 local totalstep = 817
@@ -114,9 +114,9 @@ local TorcsDiscrete = require 'TORCS.TorcsDiscrete'
 local opt = {}
 opt.server = true
 opt.game_config = 'quickrace_discrete_single_ushite-city.xml'
-opts.use_RGB = false
-opts.mkey = 817
-opts.auto_back = false
+opt.use_RGB = false
+opt.mkey = 817
+opt.auto_back = false
 
 local env = TorcsDiscrete(opt)
 local totalstep = 817
@@ -208,9 +208,10 @@ There are two dimensions of continuous actions in this environment:
 * gear changes automatically
 
 ### Tracks
+You can customize the racing track by the way stated in `Customize the Race` section. Here we provide some game configuration on different tracks, see `*.xml` files, which are named in format `quickrace_<discrete|continuous>_<single|multi>_<trackname>.xml`, in the `game_config` folder.
 
-
-### Reward Design
+### Reward
+You can modify the original reward function of the environment by override `reward()` function, as in `TorcsDiscreteConstDamagePos`.
 
 ## System Explanation in a Nutshell
 In this section, we briefly explain how the racing car environment works.
@@ -312,7 +313,7 @@ To specify the memory sharing key:
 * In lua interface: `opt.mkey = <key>`
 
 ### Obtain the First Person View
-Related files: `torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp`.
+Related file: `torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp`.
 
 See
 
@@ -324,7 +325,7 @@ See
 You can generate the corresponding `xxx.xml` game configuration file in the following way:
 
 1. enter `torcs` in cli to enter the game GUI MANU
-2. Configure race in `Race -> QuickRace -> Configure Race`. You can choose the tracks, robots. Note that **Do select robot ficos_discrete/ficos_continuous**.
+2. Configure race in `Race -> QuickRace -> Configure Race`. You can choose the tracks, robots. **Do select robot ficos_discrete/ficos_continuous**.
 3. In `Race Distance` choose `10 km`
 4. click `accept`s
 5. In `~/.torcs/config/raveman` there is a file `quickrace.xml`, this is the corresponding game configuration file
