@@ -1,9 +1,9 @@
 # TORCS for Reinforcement Learning
-[TORCS (The Open Racing Car Simulator)](http://torcs.sourceforge.net/) is a famous open-source racing car simulator, which provides a realistic physical racing environment and a set of highly customizable API. But it is not so convenient to train a RL model on this environment, for it does not provide visual API and typically needs to go through a GUI MANU to start the game. 
+[TORCS (The Open Racing Car Simulator)](http://torcs.sourceforge.net/) is a famous open-source racing car simulator, which provides a realistic physical racing environment and a set of highly customizable API. But it is not so convenient to train an RL model in this environment, for it does not provide visual API and typically needs to go through a GUI MANU to start the game. 
 
-This is a modified version of TORCS in order to suit the needs for deep reinforcement learning training **with visual observation**. Through this environment, researchers can easily train deep reinforcement learning models on TORCS via a lua [interface](https://github.com/Kaixhin/rlenvs#api) (Python interface might also be supported soon).
+This is a modified version of TORCS in order to suit the needs for deep reinforcement learning training **with visual observation**. Through this environment, researchers can easily train deep reinforcement learning models on TORCS via a Lua [interface](https://github.com/Kaixhin/rlenvs#api) (Python interface might also be supported soon).
 
-The original torcs environment is modified in order to
+The original TORCS environment is modified in order to
 
 1. Be able to start a racing game with visual output **without going through a GUI MANU**
 2. Obtain the **first-person visual observation** in games
@@ -12,7 +12,7 @@ The original torcs environment is modified in order to
 5. Support multi-thread RL training on TORCS environment
 6. Support semantic segmentation on the visual in inputs via some hacks
 
-This environment interface is originally written for my RL research project, and I think open-sourcing this can make it much more easier for current studies on both autonomous cars and reinforcement learning.
+This environment interface is originally written for my RL research project, and I think open-sourcing this can make it much easier for current studies on both autonomous cars and reinforcement learning.
 
 ## Environment Specification
 This repository contains
@@ -28,21 +28,21 @@ This repository contains
 * [torch](http://torch.ch/)
 
 ## IMPORTANT!!
-* If you want to run this environment on a server (without display device) with NVIDIA graphic cards, **please make sure your nvidia drivers are installed with flag `--no-opengl-files`**! (otherwise there will be problems when using xvfb, see [this](https://davidsanwald.github.io/2016/11/13/building-tensorflow-with-gpu-support.html))
+* If you want to run this environment on a server (without display device) with Nvidia graphic cards, **please make sure your Nvidia drivers are installed with flag `--no-opengl-files`**! (otherwise, there will be problems when using xvfb, see [this](https://davidsanwald.github.io/2016/11/13/building-tensorflow-with-gpu-support.html))
 * In order to correctly install the dependency packages and if you are using a desktop version of Ubuntu, please go to *System Settings -> Software & Updates* and tick the *source code* checkbox before installation, or you should modify your `/etc/apt/sources.list`.
 * If your server is Ubuntu 14.04, please do 
 	
 		cd torcs-1.3.6
 		./configure --disable-xrandr
 	
-	before installation, otherwise there will also be some problems when using xvfb.
+	before installation, otherwise, there will also be some problems when using xvfb.
 
 ## Installation
 Just run `install.sh` in the root folder with sudo:
 
 	sudo ./install.sh
 
-After installation, in command line, type `torcs` (`xvfb-run -s "-screen 0 640x480x24" torcs` if on a server). If there jumps off a torcs window (or there is no errors popping up on the command line), the installation has succeeded. Press `ctrl + \` to terminate it (`ctrl + c` has been masked.).
+After installation, in command line, type `torcs` (`xvfb-run -s "-screen 0 640x480x24" torcs` if on a server). If there jumps off a torcs window (or there are no errors popping up on the command line), the installation has succeeded. Press `ctrl + \` to terminate it (`ctrl + c` has been masked.).
 
 ## Interface Specification
 The overall interface of this environment follows https://github.com/Kaixhin/rlenvs#api
@@ -97,12 +97,12 @@ env:cleanUp()
 ```
 
 ### Basic Usage (on a server ubuntu)
-Before running the environment, run this on a terminal window:
+Before running the environment, run this in a terminal window:
 
 ```
 ./xvfb_init.sh 99
 ```
-Then a xvfb is set up on display port 99, allowing at most 14 torcs running on this xvfb
+Then a xvfb is set up on display port 99, allowing at most 14 TORCS environment simultaneously running on this xvfb
 
 Example script: `test.lua`
 
@@ -148,7 +148,7 @@ You can pass a table to the environment to configure the racing car environment:
 
 * `server`: bool value, set `true` to run on a server
 * `game_config`: string, the name of game configuration file, should be stored in the `game_config` folder
-* `use_RGB`: bool value, set `true` to use RGB visual observation, otherwise gray scale visual observation
+* `use_RGB`: bool value, set `true` to use RGB visual observation, otherwise grayscale visual observation
 * `mkey`: integer, the key to set up memory sharing. Different running environment should have different mkey
 * `auto_back`: bool value,  set `false` to disable the car's ability to reverse its gear (for going backward)
 
@@ -156,7 +156,7 @@ You can pass a table to the environment to configure the racing car environment:
 See `torcs_test.lua`.
 
 ### Action Space
-We provide environments with two different action spaces. Note that different action space should choose different type of game configurations respectively (see [Further Customization](https://github.com/YurongYou/rlTORCS#optional-further-customization) section below for explanations on game configuration).
+We provide environments with two different action spaces. Note that different action space should choose different types of game configurations respectively (see [Further Customization](https://github.com/YurongYou/rlTORCS#optional-further-customization) section below for explanations on game configuration).
 
 In original torcs, the driver can have controls on four different actions:
 
@@ -210,6 +210,8 @@ There are two dimensions of continuous actions in this environment:
 ### Tracks
 
 
+### Reward Design
+
 ## System Explanation in a Nutshell
 In this section, we briefly explain how the racing car environment works.
 
@@ -251,10 +253,82 @@ Details about the test:
 ## [Optional] Further Customization
 In this section, I explain how I modify the environment. If you are not intended to further customize the environment, you can just skip this section.
 
+All modifications on the original TORCS source code are indicated by a `yurong` marker.
+
 ### Skip the GUI MANU
-### Memory Sharing Detail
+Related files: `torcs-1.3.6/src/main.cpp` and `torcs-1.3.6/src/libs/raceengineclient/raceinit.cpp`
+
+Run `torcs _rgs <path to game configuration file>` then the race is directly set up and begin running.
+
+### Memory Sharing Details
+Related files: 
+
+```lua
+torcs-1.3.6/src/main.cpp 
+-- set up memory sharing
+torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp 
+-- forward the pointers, write first person view image into the shared memory
+torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp 
+-- receive command from the shared memory, write race information
+torcs-1.3.6/src/drivers/ficos_continuous/ficos_continuous.cpp 
+-- receive command from the shared memory, write race information
+TORCS/TORCSctrl.cpp 
+-- manage communication between lua and C++
+```
+
+Memory sharing structure
+
+```c
+struct shared_use_st
+{
+    int written;
+    uint8_t data[image_width*image_height*3];
+    uint8_t data_remove_side[image_width*image_height*3];
+    uint8_t data_remove_middle[image_width*image_height*3];
+    uint8_t data_remove_car[image_width*image_height*3];
+    int pid;
+    int isEnd;
+    double dist;
+
+    double steerCmd;
+    double accelCmd;
+    double brakeCmd;
+
+    // for reward building
+    double speed;
+    double angle_in_rad;
+    int damage;
+    double pos;
+    int segtype;
+    double radius;
+    int frontCarNum;
+    double frontDist;
+};
+```
+
+To specify the memory sharing key:
+
+* In TORCS: `torcs _mkey <key>`
+* In lua interface: `opt.mkey = <key>`
+
 ### Obtain the First Person View
+Related files: `torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp`.
+
+See
+
+```c
+863: glReadPixels(0, 0, image_width, image_height, GL_RGB, GL_UNSIGNED_BYTE, (GLvoid*)pdata);
+```
+
 ### Customize the Race
+You can generate the corresponding `xxx.xml` game configuration file in the following way:
+
+1. enter `torcs` in cli to enter the game GUI MANU
+2. Configure race in `Race -> QuickRace -> Configure Race`. You can choose the tracks, robots. Note that **Do select robot ficos_discrete/ficos_continuous**.
+3. In `Race Distance` choose `10 km`
+4. click `accept`s
+5. In `~/.torcs/config/raveman` there is a file `quickrace.xml`, this is the corresponding game configuration file
+
 ### Visual Input Semantic Segmentation
 
 ## Reference 
