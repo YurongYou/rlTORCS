@@ -1,0 +1,426 @@
+1.  Introduction
+2.  Non-Free content (in GPL sense)
+3.  Track editor
+4.  Linux Installation from Source
+5.  Windows Installation from Source (Release version)
+5.1 Windows Installation from Source, additional notes
+6.  Windows Installation from Source (Debug version)
+7.  Testing
+8.  Getting Help
+9.  Running under Valgrind with Linux
+10. Changes
+11. TODO/Notes
+
+
+1. Introduction
+---------------
+First a big welcome, I hope you will enjoy your ride:-)
+
+This is an all in one package of TORCS. Be aware that some included
+artwork has non free (in the GPL sense) licenses, you will find a "readme.txt"
+in those directories. The rest is either licensed under the GPL or the Free
+Art License. If you want to create cars or advanced tracks using the accc tool,
+you will require stripe from http://www.cs.sunysb.edu/~stripe.
+
+If you use TORCS for research/projects you can have a look into the FAQ for
+citation guidelines.
+
+Kind regards
+
+Bernhard
+
+
+2. Non-Free content (in GPL sense)
+----------------------------------
+Here the list with the directories containing non free content, look at the
+readme.txt for details:
+- data/cars/models/pw-*
+- data/cars/models/kc-*
+
+
+3. Track editor
+---------------
+The track editor is not included in this distribution, you can get it from
+http://www.berniw.org/trb/download/trackeditor-0.6.2c.tar.bz2, the sources
+are included in the jar. The sources are also available here:
+http://sourceforge.net/projects/trackeditor.
+
+
+4. Linux Installation from Source
+---------------------------------
+- Requires plib 1.8.5, FreeGLUT or GLUT, be aware to compile plib with -fPIC
+  on AMD64 if you run a 64 bit version of Linux. Be aware that maybe just
+  1.8.5 works.
+- Untar the archive
+- cd into the torcs-1.3.5 directory
+- ./configure (use --help for showing the options, of interest might be
+  --enable-debug and --disable-xrandr).
+- make
+- make install
+- make datainstall
+- start with "torcs"
+
+Command line arguments:
+* -l list the dynamically linked libraries
+* -d run under gdb and print stack trace on exit, makes most sense when compiled
+     with --enable-debug
+* -g run under Valgrind (requires a debug build for useful results)
+* -e display the commands to issue when you want to run under gdb
+* -s disable multitexturing, important for older graphics cards
+* -m use X mouse cursor and do not hide it during races
+* -r pathtoraceconfigfile, run race from command line only, for testing and AI
+     training, see FAQ for details
+* -k (keep) suppress calls to dlclose to keep modules loaded (for Valgrind runs,
+     to avoid "??" in the call stack)
+
+
+5. Windows Installation from Source (Release version)
+-----------------------------------------------------
+- hint: you can have a release and a debug build side by side, the release
+  version goes to "runtime" and the debug to "runtimed".
+- requires VS 6 (tested with sp6) or VS 2008 (tested with sp1), VS2010 is reported
+  to work as well. For express editions or VS 2012 read notes in section 5.1.
+- untar the archive into a path without whitespaces and special characters.
+- cd into the torcs-1.3.5 directory
+- run setup_win32.bat
+- run setup_win32-data-from-CVS.bat
+- select the TORCS workspace (TORCS.dsw for VS 6) or solution (TORCS.sln
+  for VS 2008), select the w32-Release version.
+- compile project (0 warnings)
+- cd into the "runtime" directory.
+- run "wtorcs.exe"
+
+Command line arguments:
+* -s disable multitexturing, important for older graphics cards
+* -r pathtoraceconfigfile, run race from command line only, for testing and AI
+     training, see FAQ for details 
+
+
+5.1 Windows Installation from Source, additional notes
+------------------------------------------------------
+5.1.1 VS 2005 Express (based on imported dsw), reported by Eric Espie:
+- Run up to the setup*.bat step in the above instructions, then open the TORCS.dsw
+  file and do the following changes
+- in wtorcs -> Source Files (Solution explorer) exclude torcs.rc
+- in client -> Source Files add the file errno.cpp to the solution (located
+  in src/libs/client)
+- change in the properties of all the sub-projects :
+        in "Configuration Properties -> Link Editor -> Entry : Ignore Specific Library"
+        change LIBCD in LIBC if present.
+
+5.1.2 VS 2005 Express (based on VS2008 sln), reported by Wolf-Dieter Beelitz:
+- Edit all vcproj (=xml) files and set the "version" from 9.00 to 8.00
+- Follow the instructions above.
+
+5.1.3 VS 2008 Express, reported by Stacey Pritchett:
+- in wtorcs -> Source Files (Solution explorer) exclude torcs.rc
+- Follow the instructions above.
+
+5.1.4 VS 2012, reported by SteveO:
+- In every project (except TORCS) add /SAFESEH:NO into the Additional Options
+  (Properties-Configuration Properties-Linker-Command Line), see also
+  http://msdn.microsoft.com/en-us/library/9a89h429.aspx.
+
+
+6. Windows Installation from Source (Debug version)
+---------------------------------------------------
+- hint: you can have a debug and a release build side by side, the debug
+  version goes to "runtimed" and the release to "runtime".
+- requires VS 6 (tested with sp6) or VS 2008 (tested with sp1), VS2010 is reported
+  to work as well. For express editions or VS 2012 read notes in section 5.1.
+- untar the archive into a path without whitespaces and special characters.
+- cd into the torcs-1.3.5 directory
+- run setup_win32_debug.bat
+- run setup_win32-data-from-CVS_debug.bat
+- select the TORCS workspace (TORCS.dsw for VS 6) or solution (TORCS.sln
+  for VS 2008), select the w32-Debug version
+- compile project (0 warnings)
+- cd into the "runtimed" directory.
+- run "wtorcs.exe"
+
+Command line arguments:
+* -s disable multitexturing, important for older graphics cards
+* -r pathtoraceconfigfile, run race from command line only, for testing and AI
+     training, see FAQ for details 
+
+
+7. Testing
+----------
+If you find problems which should be already fixed or new ones please report them
+to the torcs-users mailing list.
+
+
+8. Getting Help
+---------------
+During the game press F1. For more in depth information visit www.torcs.org,
+you find there a lot of information, look at the documentation section on
+the left, have as well a look into the list of howto's. If you are stuck
+have a look into the FAQ to learn how and where to report a problem.
+
+
+9. Running under Valgrind with Linux
+------------------------------------
+First you need to build a debug version of TORCS, make sure that the CFLAGS,
+CPPFLAGS and CXXFLAGS environment variables are empty (usually they are). Then
+run "make distclean", then the configure script with the option --enable-debug
+and all other options which you require, build and install as usual.
+
+To find memory leaks run first (Valgrind must be available in the path):
+./torcs -g
+
+You will find the logfile valgrind.log in the .torcs directory. If you have
+"??" in the call stack, you can run TORCS with the -k option to avoid unloading
+the modules:
+./torcs -g -k
+
+You should use -k just to investigate the "??" in the call stacks, because the
+suppression of dlclose can hide problems related with module release and cause
+problems because modules are just recycled but not reloaded.
+
+Of course you can use this with the console (command line) mode as well, e.g.:
+./torcs -g -r ~/.torcs/config/raceman/champ.xml
+./torcs -g -k -r ~/.torcs/config/raceman/dtmrace.xml
+
+Some additional notes:
+- Valgrind (version 3.6.1) reports on systems with the ATI flgrx OpenGL driver (8.961)
+  lots of leaks, according AMD Valgrind misinterprets memory blocks handed over to the
+  kernel. When I wrote suppressions the flgrx driver hung the X Server up, conclusion:
+  Give it a try (maybe another Valgrind/driver/kernel combination does/will do better),
+  but if you run in the mentioned problems, just use the TORCS command line mode or
+  install temporarily the Open Source ATI driver alternative, maybe this does do better
+  (not tested, send me a report;-) )
+- You can edit the "torcs" script and add "--leak-check=full --show-reachable=yes"
+  to see what is still reachable at exit. This is useful to reduce the amount of cached
+  xml file handles or hunt down missing releases of handles (they are not reported
+  usually because they are reachable via the cache), beware, it is perfectly
+  fine that the GUI and some handles are held permanent.
+
+
+10. Changes
+-----------
+
+Changes since 1.3.5
+-------------------
+- Added citation guideline to FAQ and README, proposed by Christos (Christos, Bernhard).
+- Fixed null pointer dereferencing in blind mode, grsound.cpp, bug introduced in 1.3.5
+  (Wolf-Dieter, Bernhard).
+- Introduced _penaltyTime to transform late penalties into time penalties and to add time
+  penalties for corner cutting etc. (Bernhard).
+- During repair pit stops accumulated penalty time is added to pit stop and then cleared
+  (Bernhard).
+- Stop&Go and drive-through penalties pending at the end of the race are now transformed
+  into a time penalty, see comment in raceresults.cpp, ReApplyRaceTimePenalties (Bernhard).
+- Free memory of pending penalties after the race (Bernhard).
+- Adjusted Bellcrank and Suspension Course min/max values for trb1 category and cars
+  (Bernhard).
+- Updated doxygen configuration, headers and footers (Bernhard).
+- GfTime2Str operates now over the stack, no heap anymore (less error prone, performance)
+  (Bernhard).
+- Reviewed cppcheck warnings (Bernhard).
+- Changed wheels shininess to 1 (from 128) to fix some ugly rendering seen on some videos,
+  not reproducable here (Bernhard).
+- Fixed a problem regarding SimReConfig spring adjustments discovered by Wolf-Dieter
+  (spring values were inverted for special case when parameter was not adjustable, 
+  min == max) (Wolf-Dieter, Bernhard).
+- Added absolute value of speed vector, accessible in tCarElt->pub.speed, use it in
+  aero.cpp, grsmoke.cpp, grskidmarks.cpp, CarSoundData.cpp and human.cpp (David,
+  Bernhard).
+- Improved display of track maps in track select menu, aspect ratio (Bernhard).
+- Recreated most track maps for consistent look of track selection menu (Bernhard).
+- Improved/cleaned up reading of player preferences, controller setup (Bernhard).
+- Fixed GCC 4.7 compiler warning in controlconfig.cpp (Bernhard).
+- Added several configuration fields to controller setup GUI (Bernhard).
+- Fixed automatic clutch for human driver not working out of the box under some
+  conditions (Bernhard). 
+- Remaining penalty time by the end of the race is recorded in the race results
+  and added to the race total time (Bernhard).
+- Added column for penalty time to race result screen (Bernhard).
+- During stop&go stops accumulated penalty time is added to pit stop time and then
+  cleared (Bernhard).
+- Implemented corner cutting penalty for races, the penalty is currently calculated
+  as speed*timestep*deviation/minlegalradius, see raceengine.cpp (Bernhard).
+- Best lap time committing is in races now handled like in qualifying and practice,
+  so if you cut corners or hit walls the lap cannot be a best lap (Bernhard).
+- Penalty time is displayed in top left panels (Bernhard).
+- Applied Wolf-Dieters suggestion for VS Express regarding Icon/.rc (Wolf-Dieter,
+  Bernhard).
+- Removed custom starting grid for e-track-2 (Bernhard).
+- Added e-track-2 to championship (Bernhard).
+- Adopted berniw/berniw2 default setup's to new trb1 boundaries (Bernhard).
+- Removed obsolete wheel parameter "rolling resistance" (Bernhard).
+- Opened up the range of the "dynamic friction" tire parameter for some categories,
+  to enable a larger grip drop-off with large slip (Bernhard).
+- Car xml changes (real world data, suspension, ...) in kc-grifo, kc-giulietta,
+  kc-ghibli, kc-dino, kc-dbs, kc-db4z, kc-daytona, kc-corvette-ttop, kc-conrero,
+  kc-conero, kc-coda, kc-cobra, kc-bigh, kc-alfatz2, kc-5300gt, kc-2000gt (Bernhard).
+- Updated manual page torcs.6, added command line options (Bernhard).
+- Removed some unused defines from raceman.h and associated entries in raceman
+  configuration XML's (Bernhard).
+- Fixed a problem in simuv2 regarding off centered cars (Bernhard).
+- Added configuration of wall hit and corner cutting rules, by default all are
+  enabled, see practice.xml for the options (Bernhard).
+- Added fuel consumption and damage factor configuration to race manager, so it is
+  now possible to set up racing with no damage/no fuel consumption (0.0) or up
+  to 5 times damage/fuel consumption for more pit action, see practice.xml for the
+  options (Bernhard).
+- Changed version to 1.3.6 (Bernhard).
+- Added pit stop time configuration options for race sections in racemanager xml,
+  see raceman.h and racemain.cpp, ReInitRules. Refuel fuel flow, repair time factor,
+  pit base time and pit speed limit can be changed, inspired by Rick (Rick,
+  Bernhard).
+- Smoothed lighting on some parts of car6-trb1 (Wolf-Dieter, Bernhard).
+- Fixed missing "spring" track map on track selection screen under Windows
+  (Bernhard).
+- Installers/packaging, released as 1.3.6 (Bernhard).
+
+
+11. TODO/Notes
+--------------
+
+
+TODO for 1.3.7/x
+----------------
+- Z-Collision
+- Merge simuv3 parts into simuv2
+- Review and eventually apply mac os x build
+- Review MorphOS changes
+- Clean up doxygen docs
+
+
+eventually (otherwise in 1.4.x or later):
+- track wall properties
+
+- Solve problems with side entering/exiting pit lane rules (repeated violations give
+  only one penalty under some conditions).
+- Skidmarks/shadows masking with stencil
+- Phong specular highlights/in shadow occlusion
+- Skidmarks to simu/persistency (get rid of frame rate dependency)
+- Rules/Modes which do not requrie 1.4 changes
+- Store all graphics engine state in a context struct/object (to be able to render telemetry
+  in the car setup screen or during a running session)
+- Telemetry
+- Timed races (e.g. 24h).
+- Review/reduce dynamic memory allocation/release during rendering
+
+TODO for 1.4.x
+--------------
+- Robot interface adoptions (maybe askfeatures, callonce, grid, postprocess, we will see...)
+- More Rules.
+- Apply SDL patch from Brian Gavin but moving directly to SDL 2.0.
+- Update OpenAL to 1.1, fix use of deprecated stuff.
+- Car asignment for human players.
+- Sound (alut depricated/scheduling for lots of cars)
+- Make it possible for a robot module to carry any arbitrary number of
+  drivers (instead of static 10).
+- Pace car and trucks to remove wrecks (remove "virtual" crane?).
+- Replace wav sounds with ogg?
+- Track extensions (crossings, split/join, variable width)
+- Replays
+
+TODO TRB
+--------
+- RSS feed(s) (suggested by Quinten)
+- Race XML generation
+- Content exchange
+- E-Mail exchange
+
+TODO for Compliance
+-------------------
+155-DTM -> replace with car10-trb1
+acura -> replace with car9-trb1
+mc-larenf1 -> replace with car10-trb1
+p406 -> replace with car1-trb4
+rework buggy, baja bug
+replace rally cars
+Remove invalid geometry from tracks 
+convert force units internally from lbs to lbf
+
+
+Later:
+-------------------
+- Decide about plib (not maintained anymore?) -> integration of minimal subset as base
+  for own engine?
+- Refactor trackgen (left/right -> half the code, maybe more)
+- Mixed axis controller (under linux some analouge buttons generate a button and axis
+  event, this is a problem for detection/calibration with the current workflow, e.g.
+  ps3 controller buttons l2/r2)
+- Ongoing for every release: rework free car models (several holes, no
+  emmissive color of lod (model becomes dark at a certain distance), single
+  sided, add cockpit, lods).
+- Ongoing for every release: Improve visual quality of some existing tracks.
+- Fix sound in split screen multiplayer.
+- Ongoing: Replace some defines with "static const" to be able to see the
+  symbol name when debugging.
+- move berniw/bt spline code into math to share it.
+- hunt down all glGet* crap during the simulation.
+- (Problem when driver list changes during championship.)
+- (add proper init/shutdown to every module which is not bound to anything else
+  but the loading/init/shutdown/unloading process.)
+- Blind mode should not load graphics engine.
+
+
+TODO for 1.9.x (pre 2.0 series, no release)
+--------------
+- Design networking, how to embed it into TORCS?
+- Networking prototype.
+- Gaming modes suitable for online races.
+- Cockpit inside view.
+- Set up infrastructure for reading binary data files bit with and endianness independent.
+
+TODO for 2.0.0
+--------------
+- Initial Networking.
+
+
+TODO LATER
+----------
+- Add validation for the case no driver selected, do not exit to
+  console.
+- Networking (2.0).
+- SMP simulaton core (for myself).
+- Replays.
+- Telemetry recorder/viewer.
+- Phong specular highlights (optional env, cube or GLSL).
+- Shadowmapped/Stenciled dynamic car shadows.
+- so/dll with libtool, common code?
+- 3d-grass.
+- Dynamic sky.
+- TRB integration.
+- Fix/create new simu/switch to updated/new simu.
+- Show just fitting resolutions for fullscreen/change for windowed mode.
+- Separate components more clean (e.g. ssgInit should go back to
+  ssggraph, etc.)
+- Fix windows project such that it compiles in all locations (currently it
+  fails if special characters are in the path).
+- Avoid cameras cutting the landscape.
+- Start position marks on track (same technique like fake shadow, skids).
+- Start procedures (pace car, etc).
+- Better transparency for track objects.
+- More driving aids, switch to AI and back.
+- localization (e.g English, French, German, ...).
+- Fix engine inertia/s of F1 cars, check/fix all other cars as well.
+- Opponent sets for human players (e.g 20 Open Wheel cars, etc.)
+- Free camera controlled with mouse and keys.
+- Automate GL features verification (hopefully obsolete).
+
+
+IDEAS FOR MUCH LATER
+--------------------
+- Weather.
+- Dynamic day/night-time, car lights with projective texturing.
+- Pit crew.
+- Dynamic "intelligent" Objects (e.g. Helicopter)
+- Solid/dynamic obstacles.
+- Nicer trees etc, terrain LOD.
+- Inside view.
+- Animated driver.
+- Dirt on cars, inside view.
+- free terrain.
+- Open track dynamically generated when driving.
+- Random track generator.
+- Separate pit path, Y segments, etc?
+- TORCS as benchmark or screensaver?
+- Force feedback.
+- (Compressed data files?)
+- Story mode with message.
+- Traffic simulator

@@ -1,0 +1,114 @@
+Changes since 1.3.5-test1
+-------------------------
+- Added support for unit "lbf" in params.cpp (Bernhard).
+- Changed unit from lbs to lbf in carsetupscreen for catalogue like spring/damper rates
+  (with lbs the problem is that it is not detected as force, so the 9.80665 (G) is not
+  taken into account when converting to SI for internal use) (Bernhard).
+- Fixed some z-fighting on wheel-2 (Bernhard).
+- Added raceline to wheel-2 (Bernhard).
+- Adjusted lighting of wheel-2, brightened shadow map (Bernhard).
+- Removed isnan/isinf check in simu.cpp on gear variable, reported by Rene Ladan
+  (FreeBSD LLVM clang compatibility) (Rene, Bernhard).
+- Fixed compilation of simuv3 (Bernhard).
+- Added raceline to e-track-6 (Bernhard).
+- Adjusted lighting of e-track-6 (Bernhard).
+- Adjusted surface properties of e-track-6 (Bernhard).
+- Totally reworked e-track-2 (Bernhard).
+- Added "currentMinSpeedForLap" to tCarElt, as suggested by Wolf-Dieter, measures min
+  speed for the current lap, resets on start line crossing (Wolf-Dieter, Bernhard).
+- Packaging/installer, released as 1.3.5 (Bernhard).
+
+Changes since 1.3.4
+-------------------
+- Updated history (Bernhard).
+- Applied linking patch for systems with liker option "--as-needed" (Ubuntu), patch provided
+  by Jasper van de Ven (Jasper, Bernhard).
+- Updated robotgen script for recent changes, patch provided by Jasper van de Ven
+  (Jasper, Bernhard).
+- TRB: Updated installdb.php to allow longer session keys (Bernhard).
+- TRB: Added best qualifying lap times per event in track view (Bernhard).
+- TRB: Adjusted styling in templates towards themeing (Bernhard).
+- TRB: Added public download of robots when event is done (Bernhard).
+- TRB: Added TORCS versioning for races (Bernhard).
+- TRB: Added installation instructions (Bernhard).
+- Fixed bug #98 (non buttons for non leading human player) reported by Jon Zabala. The problem
+  was floating point comparison with different types (lastKeyUpdate != s->currentTime)
+  (Jon, Bernhard).
+- Added build notes for VS2005 Express, VS2008 Express, VS2010, VS2012 provided by Eric,
+  Wolf-Dieter, Stacey and Steve (Eric, Wolf-Dieter, Stacey, Steve, Bernhard).
+- Fixed accc allocating too small array for texture coordinates in pathologic cases (e.g.
+  just 1 or 2 surfaces per object, or all surfaces specially mapped) (Bernhard).
+- Fixed car center of car1-stock1 (Bernhard).
+- Fixed car center of car8-trb1 (Bernhard).
+- New category and car (4-speed stock car) (Bernhard).
+- Fix in RtDistToPit to ensure that the value gets not bigger than the track length, reported
+  by Daniel Schellhammer (Daniel, Bernhard).
+- Fixed trackgen state consistency for border height, height is now carried over if there is
+  no new definition given (Bernhard).
+- Fixed track barriers not taking into account the texture offset property in trackgen
+  ("texture start on boundary") (Bernhard).
+- Adopted download location of trackeditor in README (Bernhard).
+- Fixed car flying off with extreme suspension settings, see
+  http://www.berniw.org/trb/forum/showthread.php?topicid=3640 (Bernhard).
+- Fixed applied force when wheel has lost touch with the ground (Bernhard).
+- Added suspension parameter to set up slow->fast thresholds, "fast bump threshold" and
+  "fast rebound threshold" (Bernhard).
+- Adopted robots to brake full when in "landing zone" for saver pit stops (Bernhard).
+- Modified LSD (limited slip differential) from one way to 1.5 way, modified behaviour for
+  unlocked operation, see car8-trb1 as example (Bernhard).
+- Fixed moment calculation for free differential, the sum of the moments was ok, but it
+  created "virtual energy" (Bernhard).
+- Fixed slip calculation for limited slip differential, from fabs(v1-v2)/fabs(v1+v2) to
+  fabs(v1-v2)/(fabs(v1)+fabs(v2))), this ensures that the function stays between 0..1,
+  important mostly at initial conditions (Bernhard).
+- Fixed viscous coupler not operating in given parameter range (Bernhard).
+- Added more tracks to championship mode (Bernhard).
+- More improvments in wheel.cpp for handling extreme initial conditions, reviewed the
+  suspension velocity scaling (it is fine) (Bernhard).
+- Adjusted drag coefficient of p406 (Bernhard).
+- Changed suspension defaults for fast bump and rebound to the slow values (so if just slow
+  values are given the fast values are the same as the slow ones, so you get an "ordinary"
+  damper, previous default was 0.0) (Bernhard).
+- Implemented 3rd element, "spring", "suspension course", "slow bump" and "slow rebound" in
+  the axle section to set it up. The suspension course defines when the element kicks in, so
+  "3rd suspension course" * "bellcrank of ordinary suspension" should be significantly
+  smaller than the ride height (otherwise the element is active all the time) (Bernhard).
+- Tiny optimization in anti rollbar code (Bernhard).
+- Added initial support for setting up cars, work in progress (Bernhard).
+- Added RtGetCarPitSetupFilename, RtSaveCarPitSetup, RtSaveCarPitSetup, RtLoadCarSetup and
+  RtInitCarPitSetup to robottools (Bernhard).
+- Adopted builds to carsetupscreen (Bernhard).
+- Bugfix regarding editbox and  enable/disable, did not matter so far because it was not
+  used like this (Bernhard).
+- Added button enable/disable logic in pitmenu (e.g. just enabe "stop and go" if a penalty
+  is pending") (Bernhard).
+- Finished car setup screen (Bernhard).
+- Use setups in human driver (Bernhard).
+- Mute sound during in game menus and on "pause" (Bernhard).
+- Removed plib sound backend choice in menu (Bernhard).
+- Adopted p406 car and associated category to allow useful value ranges for setups
+  (Bernhard).
+- Adopted car1/2/3/4/5/6/7/8-trb1 car and trb1 category to allow useful value ranges for
+  setups, trb1 cars support now the third element (Bernhard).
+- Adopted car1-ow1 and category to allow useful value ranges for setups, ow1 cars
+  support now the third element (Bernhard).
+- Adopted car1-stock1 and category to allow useful value ranges for setups, changed
+  differential from free to limited slip (Bernhard).
+- Adopted car1-stock2 and category to allow useful value ranges for setups (Bernhard).
+- Added handling of invalid viscous coupler parameters, because user can change those now
+  in the car setup GUI (min > max) (Bernhard).
+- Adopted Offroad-4WD-GrA category for setup screen (Bernhard).
+- Adopted pw-206/306/corolla/evoiv/focus/impreza-wrc car settings, changed front
+  differential from free to limited slip (Bernhard).
+- Adopted Track-4WD-GrB category and 155-DTM car for setup screen (Bernhard).
+- Adopted Track-RWD-GrB category and acura-nsx-sz car for setup screen (Bernhard).
+- Adopted Offroad-RWD-GrA category and bajy-bug/buggy car for setup screen (Bernhard).
+- Adopted Historic category and 2000gt, 5300gt, A110, TZ2, AH3000MkII, Cobra427,
+  Cobra DS, Cornero, T-Top, Gtb4-Daytona, DB4Z, AM DBS, 246GT, Ghibli, Grifo, GT40,
+  250GTO and 330P4 cars for setup screen (Bernhard).
+- Refitted various Historic cars with real world data (Bernhard).
+- Adopted car1-trb3 car and trb3 category for setup screen (Bernhard).
+- Adopted robots to setup changes (Bernhard).
+- Changed version to 1.3.5-test1 (Bernhard).
+- Updated Windows installer (Bernhard).
+- Released as 1.3.5-test1 (Bernhard).

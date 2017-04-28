@@ -1,0 +1,1560 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE params SYSTEM "../../../../src/libs/tgf/params.dtd" [
+<!--  general definitions for tracks  -->
+<!ENTITY default-surfaces SYSTEM "../../../data/tracks/surfaces.xml">
+<!ENTITY default-objects SYSTEM "../../../data/tracks/objects.xml">
+]>
+
+<params mode="mw" name="Test" type="param">
+  <section name="Surfaces">
+    <section name="asphalt-tr-asphalt-l">
+      <attnum name="color R1" val="0.1" />
+      <attnum name="color G1" val="0.1" />
+      <attnum name="color B1" val="0.1" />
+      <attnum name="color R2" val="0.2" />
+      <attnum name="color G2" val="0.2" />
+      <attnum name="color B2" val="0.2" />
+      <attstr name="texture name" val="asphalt-tr-asphalt-l.rgb" />
+      <attstr name="texture type" in="discrete, continous" val="continous" />
+      <attnum name="texture size" val="20.0" unit="m" />
+      <attnum name="texture mipmap" val="4.0" />
+      <attstr name="bump name" val="" />
+      <attnum name="bump size" val="2.0" unit="m" />
+      <attnum name="friction" val="2" />
+      <attnum name="rolling resistance" val="0.001" />
+      <attnum name="roughness" val="0.0" />
+      <attnum name="roughness wavelength" val="1.0" />
+    </section>
+    <section name="asphalt">
+      <attnum name="color R1" val="0.1" />
+      <attnum name="color G1" val="0.1" />
+      <attnum name="color B1" val="0.1" />
+      <attnum name="color R2" val="0.2" />
+      <attnum name="color G2" val="0.2" />
+      <attnum name="color B2" val="0.2" />
+      <attstr name="texture name" val="asphalt.rgb" />
+      <attstr name="texture type" in="discrete, continous" val="continous" />
+      <attnum name="texture size" val="20.0" unit="m" />
+      <attnum name="texture mipmap" val="4.0" />
+      <attstr name="bump name" val="" />
+      <attnum name="bump size" val="2.0" unit="m" />
+      <attnum name="friction" val="2" />
+      <attnum name="rolling resistance" val="0.001" />
+      <attnum name="roughness" val="0.0" />
+      <attnum name="roughness wavelength" val="1.0" />
+    </section>
+    <section name="asphalt-tr-asphalt-l_nmm">
+      <attnum name="color R1" val="0.1" />
+      <attnum name="color G1" val="0.1" />
+      <attnum name="color B1" val="0.1" />
+      <attnum name="color R2" val="0.2" />
+      <attnum name="color G2" val="0.2" />
+      <attnum name="color B2" val="0.2" />
+      <attstr name="texture name" val="asphalt-tr-asphalt-l_nmm.rgb" />
+      <attstr name="texture type" in="discrete, continous" val="continous" />
+      <attnum name="texture size" val="30.0" unit="m" />
+      <attnum name="texture mipmap" val="4.0" />
+      <attstr name="bump name" val="" />
+      <attnum name="bump size" val="2.0" unit="m" />
+      <attnum name="friction" val="2" />
+      <attnum name="rolling resistance" val="0.001" />
+      <attnum name="roughness" val="0.0" />
+      <attnum name="roughness wavelength" val="1.0" />
+    </section>
+    <section name="barrier-armco2_arbor">
+      <attnum name="color R1" val="0.1" />
+      <attnum name="color G1" val="0.1" />
+      <attnum name="color B1" val="0.1" />
+      <attnum name="color R2" val="0.2" />
+      <attnum name="color G2" val="0.2" />
+      <attnum name="color B2" val="0.2" />
+      <attstr name="texture name" val="barrier-armco2_arbor.rgb" />
+      <attstr name="texture type" in="discrete, continous" val="continous" />
+      <attnum name="texture size" val="2.0" unit="m" />
+      <attnum name="texture mipmap" val="4.0" />
+      <attstr name="bump name" val="" />
+      <attnum name="bump size" val="2.0" unit="m" />
+      <attnum name="damage" val="2.0" />
+    </section>
+    <section name="border-1">
+      <attnum name="color R1" val="0.1" />
+      <attnum name="color G1" val="0.1" />
+      <attnum name="color B1" val="0.1" />
+      <attnum name="color R2" val="0.2" />
+      <attnum name="color G2" val="0.2" />
+      <attnum name="color B2" val="0.2" />
+      <attstr name="texture name" val="border-1.rgb" />
+      <attstr name="texture type" in="discrete, continous" val="continous" />
+      <attnum name="texture size" val="20.0" unit="m" />
+      <attnum name="texture mipmap" val="4.0" />
+      <attstr name="bump name" val="" />
+      <attnum name="bump size" val="2.0" unit="m" />
+      <attnum name="friction" val="2" />
+      <attnum name="rolling resistance" val="0.001" />
+      <attnum name="roughness" val="0.0" />
+      <attnum name="roughness wavelength" val="1.0" />
+    </section>
+    <section name="side-concdal">
+      <attnum name="color R1" val="0.1" />
+      <attnum name="color G1" val="0.1" />
+      <attnum name="color B1" val="0.1" />
+      <attnum name="color R2" val="0.2" />
+      <attnum name="color G2" val="0.2" />
+      <attnum name="color B2" val="0.2" />
+      <attstr name="texture name" val="side-concdal.rgb" />
+      <attstr name="texture type" in="discrete, continous" val="continous" />
+      <attnum name="texture size" val="8.0" unit="m" />
+      <attnum name="texture mipmap" val="4.0" />
+      <attstr name="bump name" val="" />
+      <attnum name="bump size" val="2.0" unit="m" />
+      <attnum name="friction" val="2" />
+      <attnum name="rolling resistance" val="0.03" />
+      <attnum name="roughness" val="0.03" />
+      <attnum name="roughness wavelength" val="4.0" />
+    </section>
+    <section name="terrain-maingrandstand">
+      <attnum name="color R1" val="0.1" />
+      <attnum name="color G1" val="0.1" />
+      <attnum name="color B1" val="0.1" />
+      <attnum name="color R2" val="0.2" />
+      <attnum name="color G2" val="0.2" />
+      <attnum name="color B2" val="0.2" />
+      <attstr name="texture name" val="terrain-maingrandstand.rgb" />
+      <attstr name="texture type" in="discrete, continous" val="continous" />
+      <attnum name="texture size" val="20.0" unit="m" />
+      <attnum name="texture mipmap" val="4.0" />
+      <attstr name="bump name" val="" />
+      <attnum name="bump size" val="2.0" unit="m" />
+    </section>
+    <section name="terrain-gssho">
+      <attnum name="color R1" val="0.1" />
+      <attnum name="color G1" val="0.1" />
+      <attnum name="color B1" val="0.1" />
+      <attnum name="color R2" val="0.2" />
+      <attnum name="color G2" val="0.2" />
+      <attnum name="color B2" val="0.2" />
+      <attstr name="texture name" val="terrain-gssho.rgb" />
+      <attstr name="texture type" in="discrete, continous" val="continous" />
+      <attnum name="texture size" val="20.0" unit="m" />
+      <attnum name="texture mipmap" val="4.0" />
+      <attstr name="bump name" val="" />
+      <attnum name="bump size" val="2.0" unit="m" />
+    </section>
+  </section>
+  <section name="Header">
+    <attstr name="name" val="Ushite-city-ficos" />
+    <attstr name="category" val="road" />
+    <attnum name="version" val="4" />
+    <attstr name="author" val="Politecnico di Milano" />
+    <attstr name="description" val="Tracciato generato da Trackgen" />
+  </section>
+  <section name="Graphic">
+    <attstr name="3d description" val="generato-city_city.ac" />
+    <section name="Terrain Generation">
+      <attnum name="track step" unit="m" val="20" />
+      <attnum name="border margin" unit="m" val="50" />
+      <attnum name="border step" unit="m" val="30" />
+      <attnum name="border height" unit="m" val="15" />
+      <attstr name="orientation" val="clockwise" />
+      <attstr name="surface" val="terrain-maingrandstand" />
+      <attstr name="elevation map" val="generato-city_city-elevation.png" />
+      <attnum name="maximum altitude" val="40.0" />
+      <attnum name="minimum altitude" val="-20.0" />
+      <section name="Object Maps">
+        <section name="map1">
+          <attstr name="object map" val="generato-city_city-object-map.png" />
+        </section>
+      </section>
+    </section>
+    <attstr name="background image" val="background.png" />
+    <attnum name="background type" val="4" />
+    <attnum name="background color R" val="0.5" />
+    <attnum name="background color G" val="0.5" />
+    <attnum name="background color B" val="0.5" />
+    <section name="Environment Mapping">
+      <section name="general">
+        <attstr name="env map image" val="env.rgb" />
+      </section>
+    </section>
+  </section>
+  <section name="Main Track">
+    <attnum name="width" unit="m" val="15.000000" />
+    <attnum name="profil steps length" unit="m" val="4.0" />
+    <attstr name="surface" val="asphalt-tr-asphalt-l_nmm" />
+    <!--Left part of track-->
+    <section name="Left Side">
+      <attnum name="start width" unit="m" val="4.0" />
+      <attnum name="end width" unit="m" val="4.0" />
+      <attstr name="surface" val="side-concdal" />
+      <attstr name="type" in="tangent, level" val="tangent" />
+    </section>
+    <section name="Left Border">
+      <attnum name="width" unit="m" val="2.0" />
+      <attnum name="height" unit="m" val="0.05" />
+      <attstr name="surface" val="border-1" />
+      <attstr name="style" val="plan" />
+    </section>
+    <section name="Left Barrier">
+      <attnum name="width" unit="m" val="0.1" />
+      <attnum name="height" unit="m" val="1.0" />
+      <attstr name="surface" val="barrier-armco2_arbor" />
+      <attstr name="style" val="fence" />
+    </section>
+    <!--End of left part-->
+    <!--Right part of track-->
+    <section name="Right Side">
+      <attnum name="start width" unit="m" val="4.0" />
+      <attnum name="end width" unit="m" val="4.0" />
+      <attstr name="surface" val="side-concdal" />
+      <attstr name="type" in="tangent, level" val="tangent" />
+    </section>
+    <section name="Right Border">
+      <attnum name="width" unit="m" val="2.0" />
+      <attnum name="height" unit="m" val="0.05" />
+      <attstr name="surface" val="border-1" />
+      <attstr name="style" val="plan" />
+    </section>
+    <section name="Right Barrier">
+      <attnum name="width" unit="m" val="0.1" />
+      <attnum name="height" unit="m" val="1.0" />
+      <attstr name="surface" val="barrier-armco2_arbor" />
+      <attstr name="style" val="fence" />
+    </section>
+    <!--End of right part-->
+    <section name="Track Segments">
+      <section name="0">
+        <attstr name="type" val="str" />
+        <attnum name="lg" unit="m" val="80.869484" />
+        <attnum name="z start" unit="m" val="8.702162" />
+        <attnum name="z end" unit="m" val="8.560922" />
+        <!--Left part of segment-->
+        <section name="Left Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Left Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Left Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of left part-->
+        <!--Right part of segment-->
+        <section name="Right Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Right Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Right Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of right part-->
+      </section>
+      <section name="1">
+        <attstr name="type" val="lft" />
+        <attnum name="arc" unit="deg" val="202.675302" />
+        <attnum name="radius" unit="m" val="103.458863" />
+        <attnum name="end radius" unit="m" val="27.427579" />
+        <attnum name="z start" unit="m" val="8.560922" />
+        <attnum name="z end" unit="m" val="7.917" />
+        <!--Left part of segment-->
+        <section name="Left Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Left Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Left Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of left part-->
+        <!--Right part of segment-->
+        <section name="Right Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Right Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Right Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of right part-->
+      </section>
+      <section name="2">
+        <attstr name="type" val="rgt" />
+        <attnum name="arc" unit="deg" val="205.064508" />
+        <attnum name="radius" unit="m" val="78.370385" />
+        <attnum name="end radius" unit="m" val="84.497655" />
+        <attnum name="z start" unit="m" val="7.917" />
+        <attnum name="z end" unit="m" val="6.887511" />
+        <!--Left part of segment-->
+        <section name="Left Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Left Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Left Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of left part-->
+        <!--Right part of segment-->
+        <section name="Right Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Right Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Right Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of right part-->
+      </section>
+      <section name="3">
+        <attstr name="type" val="lft" />
+        <attnum name="arc" unit="deg" val="213.326661" />
+        <attnum name="radius" unit="m" val="19.555045" />
+        <attnum name="end radius" unit="m" val="388.062606" />
+        <attnum name="z start" unit="m" val="6.887511" />
+        <attnum name="z end" unit="m" val="4.66136" />
+        <!--Left part of segment-->
+        <section name="Left Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Left Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Left Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of left part-->
+        <!--Right part of segment-->
+        <section name="Right Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Right Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Right Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of right part-->
+      </section>
+      <section name="4">
+        <attstr name="type" val="rgt" />
+        <attnum name="arc" unit="deg" val="97.257087" />
+        <attnum name="radius" unit="m" val="435.618027" />
+        <attnum name="end radius" unit="m" val="43.976413" />
+        <attnum name="z start" unit="m" val="4.66136" />
+        <attnum name="z end" unit="m" val="4.277762" />
+        <!--Left part of segment-->
+        <section name="Left Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Left Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Left Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of left part-->
+        <!--Right part of segment-->
+        <section name="Right Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Right Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Right Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of right part-->
+      </section>
+      <section name="5">
+        <attstr name="type" val="lft" />
+        <attnum name="arc" unit="deg" val="217.546856" />
+        <attnum name="radius" unit="m" val="102.316446" />
+        <attnum name="end radius" unit="m" val="54.886712" />
+        <attnum name="z start" unit="m" val="4.277762" />
+        <attnum name="z end" unit="m" val="4.9248095" />
+        <!--Left part of segment-->
+        <section name="Left Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Left Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Left Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of left part-->
+        <!--Right part of segment-->
+        <section name="Right Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Right Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Right Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of right part-->
+      </section>
+      <section name="6">
+        <attstr name="type" val="rgt" />
+        <attnum name="arc" unit="deg" val="149.114839" />
+        <attnum name="radius" unit="m" val="25.101544" />
+        <attnum name="end radius" unit="m" val="203.451729" />
+        <attnum name="z start" unit="m" val="4.9248095" />
+        <attnum name="z end" unit="m" val="5.7316723" />
+        <!--Left part of segment-->
+        <section name="Left Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Left Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Left Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of left part-->
+        <!--Right part of segment-->
+        <section name="Right Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Right Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Right Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of right part-->
+      </section>
+      <section name="7">
+        <attstr name="type" val="lft" />
+        <attnum name="arc" unit="deg" val="113.495997" />
+        <attnum name="radius" unit="m" val="47.271910" />
+        <attnum name="end radius" unit="m" val="28.884140" />
+        <attnum name="z start" unit="m" val="5.7316723" />
+        <attnum name="z end" unit="m" val="5.9642415" />
+        <!--Left part of segment-->
+        <section name="Left Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Left Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Left Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of left part-->
+        <!--Right part of segment-->
+        <section name="Right Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Right Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Right Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of right part-->
+      </section>
+      <section name="8">
+        <attstr name="type" val="lft" />
+        <attnum name="arc" unit="deg" val="16.115345" />
+        <attnum name="radius" unit="m" val="321.043324" />
+        <attnum name="end radius" unit="m" val="1892.066213" />
+        <attnum name="z start" unit="m" val="5.9642415" />
+        <attnum name="z end" unit="m" val="7.0257955" />
+        <!--Left part of segment-->
+        <section name="Left Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Left Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Left Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of left part-->
+        <!--Right part of segment-->
+        <section name="Right Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Right Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Right Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of right part-->
+      </section>
+      <section name="9">
+        <attstr name="type" val="lft" />
+        <attnum name="arc" unit="deg" val="126.116314" />
+        <attnum name="radius" unit="m" val="74.835557" />
+        <attnum name="end radius" unit="m" val="275.711674" />
+        <attnum name="z start" unit="m" val="7.0257955" />
+        <attnum name="z end" unit="m" val="8.322693" />
+        <!--Left part of segment-->
+        <section name="Left Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Left Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Left Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of left part-->
+        <!--Right part of segment-->
+        <section name="Right Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Right Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Right Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of right part-->
+      </section>
+      <section name="10">
+        <attstr name="type" val="rgt" />
+        <attnum name="arc" unit="deg" val="180.000000" />
+        <attnum name="radius" unit="m" val="73.264811" />
+        <attnum name="end radius" unit="m" val="73.264811" />
+        <attnum name="z start" unit="m" val="8.322693" />
+        <attnum name="z end" unit="m" val="8.761615" />
+        <!--Left part of segment-->
+        <section name="Left Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Left Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Left Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of left part-->
+        <!--Right part of segment-->
+        <section name="Right Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Right Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Right Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of right part-->
+      </section>
+      <section name="11">
+        <attstr name="type" val="str" />
+        <attnum name="lg" unit="m" val="4.000000" />
+        <attnum name="z start" unit="m" val="8.761615" />
+        <attnum name="z end" unit="m" val="8.765276" />
+        <!--Left part of segment-->
+        <section name="Left Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Left Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Left Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of left part-->
+        <!--Right part of segment-->
+        <section name="Right Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Right Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Right Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of right part-->
+      </section>
+      <section name="12">
+        <attstr name="type" val="lft" />
+        <attnum name="arc" unit="deg" val="102.159959" />
+        <attnum name="radius" unit="m" val="31.363477" />
+        <attnum name="end radius" unit="m" val="31.363477" />
+        <attnum name="z start" unit="m" val="8.765276" />
+        <attnum name="z end" unit="m" val="8.800275" />
+        <!--Left part of segment-->
+        <section name="Left Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Left Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Left Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of left part-->
+        <!--Right part of segment-->
+        <section name="Right Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Right Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Right Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of right part-->
+      </section>
+      <section name="13">
+        <attstr name="type" val="str" />
+        <attnum name="lg" unit="m" val="181.76144" />
+        <attnum name="z start" unit="m" val="8.800275" />
+        <attnum name="z end" unit="m" val="8.702162" />
+        <!--Left part of segment-->
+        <section name="Left Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Left Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Left Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of left part-->
+        <!--Right part of segment-->
+        <section name="Right Side">
+          <attnum name="start width" unit="m" val="4.0" />
+          <attnum name="end width" unit="m" val="4.0" />
+        </section>
+        <section name="Right Border">
+          <attnum name="width" unit="m" val="0.5" />
+          <attnum name="height" unit="m" val="0.05" />
+          <attstr name="style" val="plan" />
+        </section>
+        <section name="Right Barrier">
+          <attnum name="width" unit="m" val="0.1" />
+          <attnum name="height" unit="m" val="1.0" />
+          <attstr name="style" val="curb" />
+        </section>
+        <!--End of right part-->
+      </section>
+    </section>
+    <section name="Pits">
+      <attstr name="side" val="right" />
+      <attstr name="entry" val="" />
+      <attstr name="start" val="" />
+      <attstr name="end" val="" />
+      <attstr name="exit" val="" />
+      <attnum name="length" unit="m" val="0.0" />
+      <attnum name="width" unit="m" val="0.0" />
+    </section>
+  </section>
+  <section name="Objects">
+    <section name="arch-g1SD-1-223.0">
+      <attstr name="object" val="arch-g1SD-1.ac" />
+      <attnum name="color" val="0x00FF01" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="223.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="arch-g1SD-2-112.0">
+      <attstr name="object" val="arch-g1SD-2.ac" />
+      <attnum name="color" val="0x00FF02" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="112.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-alp-torcs-15.0">
+      <attstr name="object" val="billboard-alp-torcs.ac" />
+      <attnum name="color" val="0x00FF03" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="15.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-all-tune-34.0">
+      <attstr name="object" val="billboard-all-tune.ac" />
+      <attnum name="color" val="0x00FF04" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="34.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-kupo2-255.0">
+      <attstr name="object" val="billboard-kupo2.ac" />
+      <attnum name="color" val="0x00FF05" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="255.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-3-228.0">
+      <attstr name="object" val="building-3.ac" />
+      <attnum name="color" val="0x00FF06" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="228.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-3-276.0">
+      <attstr name="object" val="building-3.ac" />
+      <attnum name="color" val="0x00FF07" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="276.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-3-170.0">
+      <attstr name="object" val="building-3.ac" />
+      <attnum name="color" val="0x00FF08" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="170.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-3-40.0">
+      <attstr name="object" val="building-3.ac" />
+      <attnum name="color" val="0x00FF09" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="40.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-3-206.0">
+      <attstr name="object" val="building-3.ac" />
+      <attnum name="color" val="0x00FF0A" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="206.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-3-310.0">
+      <attstr name="object" val="building-3.ac" />
+      <attnum name="color" val="0x00FF0B" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="310.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-3-348.0">
+      <attstr name="object" val="building-3.ac" />
+      <attnum name="color" val="0x00FF0C" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="348.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-3-237.0">
+      <attstr name="object" val="building-3.ac" />
+      <attnum name="color" val="0x00FF0D" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="237.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-3-3.0">
+      <attstr name="object" val="building-3.ac" />
+      <attnum name="color" val="0x00FF0E" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="3.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-3-115.0">
+      <attstr name="object" val="building-3.ac" />
+      <attnum name="color" val="0x00FF0F" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="115.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-2-30.0">
+      <attstr name="object" val="building-2.ac" />
+      <attnum name="color" val="0x00FF10" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="30.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-2-339.0">
+      <attstr name="object" val="building-2.ac" />
+      <attnum name="color" val="0x00FF11" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="339.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-2-16.0">
+      <attstr name="object" val="building-2.ac" />
+      <attnum name="color" val="0x00FF12" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="16.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-2-357.0">
+      <attstr name="object" val="building-2.ac" />
+      <attnum name="color" val="0x00FF13" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="357.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-2-312.0">
+      <attstr name="object" val="building-2.ac" />
+      <attnum name="color" val="0x00FF14" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="312.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-2-275.0">
+      <attstr name="object" val="building-2.ac" />
+      <attnum name="color" val="0x00FF15" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="275.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-2-179.0">
+      <attstr name="object" val="building-2.ac" />
+      <attnum name="color" val="0x00FF16" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="179.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-2-54.0">
+      <attstr name="object" val="building-2.ac" />
+      <attnum name="color" val="0x00FF17" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="54.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-2-77.0">
+      <attstr name="object" val="building-2.ac" />
+      <attnum name="color" val="0x00FF18" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="77.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-2-331.0">
+      <attstr name="object" val="building-2.ac" />
+      <attnum name="color" val="0x00FF19" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="331.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-1-205.0">
+      <attstr name="object" val="building-1.ac" />
+      <attnum name="color" val="0x00FF1A" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="205.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-1-197.0">
+      <attstr name="object" val="building-1.ac" />
+      <attnum name="color" val="0x00FF1B" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="197.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-1-166.0">
+      <attstr name="object" val="building-1.ac" />
+      <attnum name="color" val="0x00FF1C" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="166.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-1-12.0">
+      <attstr name="object" val="building-1.ac" />
+      <attnum name="color" val="0x00FF1D" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="12.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-1-245.0">
+      <attstr name="object" val="building-1.ac" />
+      <attnum name="color" val="0x00FF1E" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="245.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-1-319.0">
+      <attstr name="object" val="building-1.ac" />
+      <attnum name="color" val="0x00FF1F" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="319.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-1-139.0">
+      <attstr name="object" val="building-1.ac" />
+      <attnum name="color" val="0x00FF20" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="139.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-1-140.0">
+      <attstr name="object" val="building-1.ac" />
+      <attnum name="color" val="0x00FF21" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="140.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-1-276.0">
+      <attstr name="object" val="building-1.ac" />
+      <attnum name="color" val="0x00FF22" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="276.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building-1-219.0">
+      <attstr name="object" val="building-1.ac" />
+      <attnum name="color" val="0x00FF23" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="219.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building5-120.0">
+      <attstr name="object" val="building5.ac" />
+      <attnum name="color" val="0x00FF24" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="120.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building5-326.0">
+      <attstr name="object" val="building5.ac" />
+      <attnum name="color" val="0x00FF25" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="326.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building5-49.0">
+      <attstr name="object" val="building5.ac" />
+      <attnum name="color" val="0x00FF26" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="49.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building5-45.0">
+      <attstr name="object" val="building5.ac" />
+      <attnum name="color" val="0x00FF27" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="45.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building5-308.0">
+      <attstr name="object" val="building5.ac" />
+      <attnum name="color" val="0x00FF28" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="308.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building5-205.0">
+      <attstr name="object" val="building5.ac" />
+      <attnum name="color" val="0x00FF29" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="205.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building5-341.0">
+      <attstr name="object" val="building5.ac" />
+      <attnum name="color" val="0x00FF2A" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="341.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building5-75.0">
+      <attstr name="object" val="building5.ac" />
+      <attnum name="color" val="0x00FF2B" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="75.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building5-141.0">
+      <attstr name="object" val="building5.ac" />
+      <attnum name="color" val="0x00FF2C" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="141.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="building5-30.0">
+      <attstr name="object" val="building5.ac" />
+      <attnum name="color" val="0x00FF2D" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="30.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree1-32.0">
+      <attstr name="object" val="vegetation-tree1.ac" />
+      <attnum name="color" val="0x00FF2E" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="32.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree1-53.0">
+      <attstr name="object" val="vegetation-tree1.ac" />
+      <attnum name="color" val="0x00FF2F" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="53.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree1-235.0">
+      <attstr name="object" val="vegetation-tree1.ac" />
+      <attnum name="color" val="0x00FF30" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="235.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree1-7.0">
+      <attstr name="object" val="vegetation-tree1.ac" />
+      <attnum name="color" val="0x00FF31" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="7.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree1-299.0">
+      <attstr name="object" val="vegetation-tree1.ac" />
+      <attnum name="color" val="0x00FF32" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="299.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree2-85.0">
+      <attstr name="object" val="vegetation-tree2.ac" />
+      <attnum name="color" val="0x00FF33" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="85.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree2-295.0">
+      <attstr name="object" val="vegetation-tree2.ac" />
+      <attnum name="color" val="0x00FF34" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="295.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree2-139.0">
+      <attstr name="object" val="vegetation-tree2.ac" />
+      <attnum name="color" val="0x00FF35" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="139.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree2-174.0">
+      <attstr name="object" val="vegetation-tree2.ac" />
+      <attnum name="color" val="0x00FF36" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="174.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree2-286.0">
+      <attstr name="object" val="vegetation-tree2.ac" />
+      <attnum name="color" val="0x00FF37" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="286.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree5-352.0">
+      <attstr name="object" val="vegetation-tree5.ac" />
+      <attnum name="color" val="0x00FF38" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="352.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree5-213.0">
+      <attstr name="object" val="vegetation-tree5.ac" />
+      <attnum name="color" val="0x00FF39" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="213.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree5-59.0">
+      <attstr name="object" val="vegetation-tree5.ac" />
+      <attnum name="color" val="0x00FF3A" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="59.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree5-157.0">
+      <attstr name="object" val="vegetation-tree5.ac" />
+      <attnum name="color" val="0x00FF3B" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="157.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree5-350.0">
+      <attstr name="object" val="vegetation-tree5.ac" />
+      <attnum name="color" val="0x00FF3C" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="350.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree3-40.0">
+      <attstr name="object" val="vegetation-tree3.ac" />
+      <attnum name="color" val="0x00FF3D" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="40.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree3-239.0">
+      <attstr name="object" val="vegetation-tree3.ac" />
+      <attnum name="color" val="0x00FF3E" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="239.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree3-326.0">
+      <attstr name="object" val="vegetation-tree3.ac" />
+      <attnum name="color" val="0x00FF3F" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="326.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree3-124.0">
+      <attstr name="object" val="vegetation-tree3.ac" />
+      <attnum name="color" val="0x00FF40" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="124.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vegetation-tree3-85.0">
+      <attstr name="object" val="vegetation-tree3.ac" />
+      <attnum name="color" val="0x00FF41" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="85.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vehicle-truck_arbor_ctd_n-245.0">
+      <attstr name="object" val="vehicle-truck_arbor_ctd_n.ac" />
+      <attnum name="color" val="0x00FF42" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="245.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="vehicle-truck0-81.0">
+      <attstr name="object" val="vehicle-truck0.ac" />
+      <attnum name="color" val="0x00FF43" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="81.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="arch-g1SD-1-318.0">
+      <attstr name="object" val="arch-g1SD-1.ac" />
+      <attnum name="color" val="0x00FF44" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="318.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="arch-g1SD-2-360.0">
+      <attstr name="object" val="arch-g1SD-2.ac" />
+      <attnum name="color" val="0x00FF45" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="360.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="arch-g1SD-1-254.0">
+      <attstr name="object" val="arch-g1SD-1.ac" />
+      <attnum name="color" val="0x00FF46" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="254.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="arch-g1SD-1-285.0">
+      <attstr name="object" val="arch-g1SD-1.ac" />
+      <attnum name="color" val="0x00FF47" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="285.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="arch-g1SD-1-203.0">
+      <attstr name="object" val="arch-g1SD-1.ac" />
+      <attnum name="color" val="0x00FF48" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="203.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="arch-g1SD-2-241.0">
+      <attstr name="object" val="arch-g1SD-2.ac" />
+      <attnum name="color" val="0x00FF49" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="241.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="arch-g1SD-2-90.0">
+      <attstr name="object" val="arch-g1SD-2.ac" />
+      <attnum name="color" val="0x00FF4A" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="90.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="arch-g1SD-1-439.0">
+      <attstr name="object" val="arch-g1SD-1.ac" />
+      <attnum name="color" val="0x00FF4B" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="439.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="arch-g1SD-1-156.0">
+      <attstr name="object" val="arch-g1SD-1.ac" />
+      <attnum name="color" val="0x00FF4C" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="156.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="arch-g1SD-1-403.0">
+      <attstr name="object" val="arch-g1SD-1.ac" />
+      <attnum name="color" val="0x00FF4D" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="403.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-kupo2-334.0">
+      <attstr name="object" val="billboard-kupo2.ac" />
+      <attnum name="color" val="0x00FF4E" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="334.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-all-tune-334.0">
+      <attstr name="object" val="billboard-all-tune.ac" />
+      <attnum name="color" val="0x00FF4F" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="334.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-all-tune-254.0">
+      <attstr name="object" val="billboard-all-tune.ac" />
+      <attnum name="color" val="0x00FF50" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="254.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-alp-torcs-254.0">
+      <attstr name="object" val="billboard-alp-torcs.ac" />
+      <attnum name="color" val="0x00FF51" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="254.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-alp-torcs-293.0">
+      <attstr name="object" val="billboard-alp-torcs.ac" />
+      <attnum name="color" val="0x00FF52" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="293.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-kupo2-293.0">
+      <attstr name="object" val="billboard-kupo2.ac" />
+      <attnum name="color" val="0x00FF53" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="293.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-kupo2-259.0">
+      <attstr name="object" val="billboard-kupo2.ac" />
+      <attnum name="color" val="0x00FF54" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="259.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-all-tune-259.0">
+      <attstr name="object" val="billboard-all-tune.ac" />
+      <attnum name="color" val="0x00FF55" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="259.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-all-tune-124.0">
+      <attstr name="object" val="billboard-all-tune.ac" />
+      <attnum name="color" val="0x00FF56" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="124.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-kupo2-124.0">
+      <attstr name="object" val="billboard-kupo2.ac" />
+      <attnum name="color" val="0x00FF57" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="124.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-all-tune-180.0">
+      <attstr name="object" val="billboard-all-tune.ac" />
+      <attnum name="color" val="0x00FF58" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="180.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-alp-torcs-180.0">
+      <attstr name="object" val="billboard-alp-torcs.ac" />
+      <attnum name="color" val="0x00FF59" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="180.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-alp-torcs-90.0">
+      <attstr name="object" val="billboard-alp-torcs.ac" />
+      <attnum name="color" val="0x00FF5A" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="90.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-all-tune-90.0">
+      <attstr name="object" val="billboard-all-tune.ac" />
+      <attnum name="color" val="0x00FF5B" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="90.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-alp-torcs-442.0">
+      <attstr name="object" val="billboard-alp-torcs.ac" />
+      <attnum name="color" val="0x00FF5C" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="442.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-alp-torcs-110.0">
+      <attstr name="object" val="billboard-alp-torcs.ac" />
+      <attnum name="color" val="0x00FF5D" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="110.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-alp-torcs-397.0">
+      <attstr name="object" val="billboard-alp-torcs.ac" />
+      <attnum name="color" val="0x00FF5E" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="397.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+    <section name="billboard-all-tune-397.0">
+      <attstr name="object" val="billboard-all-tune.ac" />
+      <attnum name="color" val="0x00FF5F" />
+      <attstr name="orentation type" val="standard" />
+      <attnum name="orientation" val="397.0" unit="deg" />
+      <attnum name="delta height" val="4.0" />
+      <attnum name="delta vert" val="10.0" />
+    </section>
+  </section>
+</params>
+<!--
+  file            : generato.xml
+  auto generated  : by Trackgen
+  version         : v 2.0 10/7/2009
+  author          : Politecnico di Milano
+  email           : trackgen@pierlucalanzi.net
+-->
+

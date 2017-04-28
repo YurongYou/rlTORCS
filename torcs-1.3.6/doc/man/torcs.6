@@ -1,0 +1,48 @@
+.TH "TORCS" "6" "1.3.6" "Rudy Godoy, Bernhard Wymann" "Games"
+.SH NAME
+torcs \- Racing car simulator
+.SH SYNOPSIS
+torcs [-l|-d|-g|-e] [-s] [-r] [-k]
+.br
+torcs -h
+.SH DESCRIPTION
+TORCS, The Open Racing Car Simulator, is a car racing simulation, which
+allows you to drive in races against opponents simulated by the computer.
+You can also develop your own computer-controlled drivers (also called
+robots) in C or C++. TORCS is widely used in research and education as
+base for various projects and experiments. A rich toolchain and
+documentation is available.  TORCS is "Open Source" (GNU General Public
+License Version 2 or later).
+.SH INGAME HELP
+Press the F1 key to get help in game.
+.SH OPTIONS
+.TP
+.B \-l
+list the dynamically linked libraries
+.TP
+.B \-d
+run under gdb and print stack trace on exit
+.TP
+.B \-g
+run under valgrind (requires a debug build for useful results)
+.TP
+.B \-e
+display the commands to issue when you want to run under gdb
+.TP
+.B \-s
+disable multitexturing (for ancient graphics cards)
+.TP
+.B \-r
+run race in command line mode, see FAQ for details
+.TP
+.B \-k
+suppress dlclose for modules (useful to get symbol information with valgrind)
+.TP
+.B \-h
+display usage
+
+.SH SEE ALSO
+Visit http://www.torcs.org for more information (tutorials, videos, FAQ, tools,
+addon content, etc.).
+.SH AUTHOR
+Manual page written by Rudy Godoy and Bernhard Wymann.

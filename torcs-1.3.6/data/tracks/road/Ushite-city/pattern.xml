@@ -1,0 +1,34 @@
+ <section name="Pattern">
+	<attnum name="minVar" val="3.0" />
+	<attnum name="maxVar" val="1.5" />
+	<attnum name="minNeed" val="-20.0" />
+	<attnum name="maxNeed" val="40.0" />
+	<attnum name="startRange" val="-10.0" />
+	<attnum name="endRange" val="+30.0" />
+	
+	<!-- Asphalt-->
+	<attnum name="friction" val="2" />
+	<attnum name="roughness" val="0.0" />
+	<attnum name="roughnessWavelength" val="1.0" />
+	<attnum name="rollingRes" val="0.001" />
+	
+	<!-- Side -->
+	<attnum name="sideFriction" val="2" ></attnum>
+	<attnum name="sideRoughness" val="0.03" />
+	<attnum name="sideRoughnessWavelength" val="4.0" />
+	<attnum name="sideRollingRes" val="0.03" />
+	<!-- Border -->
+	<attnum name="borderFriction" val="1.1" />
+	<attnum name="borderRoughness" val="0.0" />
+	<attnum name="borderRoughnessWavelength" val="1.0" />
+	<attnum name="borderRollingRes" val="0.001" />
+	
+	<attnum name="damage" val="2" />
+	
+<!-- NOISE -->
+	<attnum name="speed" val="3" />
+	<attnum name="octave" val="4" />
+	<attnum name="size" val="1.0" />
+
+
+  </section>

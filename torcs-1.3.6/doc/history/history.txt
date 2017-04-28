@@ -1,0 +1,112 @@
+TORCS Project History
+---------------------
+
+Original Authors
+----------------
+The original authors are Eric Espié and Christophe Guionneau.
+
+TORCS started 1997 and was called RCS (Racing Car Simulator). In the beginning
+it was a 2D simulator. Later Eric and Christophe bought a 3DFX graphics card and
+created a 3D version with OpenGL. The RARS project was very important at this
+time as reference. This version was called ORCS (Open Racing Car Simulator)
+because RCS was already known in the Unix world (Revision Control System).
+
+In the first versions the cars did not have engines and just rolled downhill
+(soap box derby simulator), there where as well no textures on the cars at this
+time.
+
+As next step the cars got engines, engine sound and were able to drive on flat
+and elevated tracks. Another name change happened at this time, ORCS was
+not related enough to cars, so the new name become TORCS (from torque??).
+
+Christophe made the first camera following the cars from the side of the track,
+and it was very nice how the cars were coming out of the haze (the haze
+was very near for a good frame rate).
+
+Another important event was when Eric found out that the forces were not
+computed in the correct frame of reference (car local instead of global) and was
+able to resolve a related car steering problem (steering back at the end of the
+turns was necessary).
+
+Later Christophe added multitexturing, this was a big step. Generally he created
+a lot of the original graphic code, and Eric converted it into the final
+"product".
+
+
+Hand over
+---------
+In March 2005 (http://torcs.sourceforge.net/index.php?name=News&file=article&sid=44)
+Eric handed the project over to me (Bernhard Wymann). My main goal was/is to improve
+TORCS and develop it towards the following USP (unique selling proposition, although
+we do not sell):
+- It must be easy to use TORCS and to modify it for own projects, so the derived
+requirements are high portability, small code base (less errors, less compile time,
+less time to start a project with it because you have less to read/navigate), good
+performance, not too many dependencies.
+
+You can see from this that my goal is not being a commercial racing game clone.
+
+
+Known forks based on TORCS
+--------------------------
+Openracing/PyTORCS:
+http://keithcu.com/wiki/index.php/OpenRacing
+I guess the goal was a C# port first, then they switched to Python. I do not know the
+timeline, but I think it must have been after this post:
+http://sourceforge.net/mailarchive/message.php?msg_id=19568061
+
+Speed-Dreams (formerly TORCS-ng):
+http://www.speed-dreams.org
+Happened short after my suggestion here:
+http://sourceforge.net/mailarchive/message.php?msg_id=20229446
+I refused to integrate uncommon/too much stuff because of size/complexity, quality
+assurance and development flexibility, so we had different goals, which led to this
+fork, read the post for details.
+
+GZRacing:
+- Commercial Mac OS X port of TORCS, sources available.
+
+
+Research/industrial projects based on TORCS
+-------------------------------------------
+You can find some references in the English Wikipedia entry, a special interesting
+one is http://cig.dei.polimi.it, http://sourceforge.net/projects/cig/files/.
+I answered questions to several hundred individuals from universities and industry,
+TORCS has been used in many projects.
+
+
+Main contributors (no particular order):
+-----------------------------------------
+Christos Dimitrakakis:
+- Introduced the actual sound code and created/contributed lots of samples
+- Created improvments/variations of simulation code
+- Improved camera code
+- Created tracks and documentation
+- Created Olethros robot
+
+Andrew Sumner:
+- Created tracks
+- Created/recreated cars
+- Mac OS X port (1.2.4)
+
+Charalampos Alexopoulos:
+- Created trackeditor (http://sourceforge.net/projects/trackeditor/?source=directory)
+- Improved trackgen
+
+Jean-Christophe Durieu:
+- Texturing for cars
+- Cartoons (http://torcs.sourceforge.net/index.php?name=Sections&op=viewarticle&artid=24)
+
+Remi Coulom:
+- K1999 robot
+
+Bernhard Wymann (me):
+- Created robots
+- Created robot tutorial
+- Created TRB (TORCS racing board)
+- Stabilized TORCS and toolchain
+- Windows port
+- Reworked tracks
+- Reworked/created cars
+- Installers (Windows/Linux)
+- Added many features
