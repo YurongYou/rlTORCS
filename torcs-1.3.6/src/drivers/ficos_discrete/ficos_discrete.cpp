@@ -192,7 +192,6 @@ drive(int index, tCarElt* car, tSituation *s)
     }
     prevRightSteer = rightSteer;
     car->ctrl.steer = leftSteer + rightSteer;
-    car->ctrl.steer = *psteerCmd;
 
     // gradual accel/brake changes
     car->_brakeCmd = *pbrakeCmd;

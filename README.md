@@ -1,5 +1,7 @@
 # TORCS for Reinforcement Learning
 
+![](assets/demo.gif)
+
 ## Table of Content
 
 - [Overview](#overview)

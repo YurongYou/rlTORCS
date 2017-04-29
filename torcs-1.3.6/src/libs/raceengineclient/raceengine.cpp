@@ -686,8 +686,6 @@ ReOneStep(double deltaTimeIncrement)
 		pauto_back = auto_back;
 		pfrontCarNum = pfrontCarNum_ghost;
 		pfrontDist = pfrontDist_ghost;
-
-		printf("%d\n", pdata_remove_middle);
      }
 /////////////////////////// by Yurong
 	int i;
