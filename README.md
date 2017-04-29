@@ -8,11 +8,11 @@
 - [IMPORTANT!!](#important)
 - [Installation](#installation)
 - [Interface Specification](#interface-specification)
-	- [Folder structure](#folder-structure)
+	- [Folder Structure](#folder-structure)
 	- [Basic Usage \(on a desktop ubuntu\)](#basic-usage-on-a-desktop-ubuntu)
 	- [Basic Usage \(on a server ubuntu\)](#basic-usage-on-a-server-ubuntu)
-	- [Options specification](#options-specification)
-	- [Multithread example](#multithread-example)
+	- [Options Specification](#options-specification)
+	- [Multithread Example](#multithread-example)
 	- [Action Space](#action-space)
 	- [Tracks](#tracks)
 	- [Reward](#reward)
@@ -79,7 +79,7 @@ The overall interface of this environment follows https://github.com/Kaixhin/rle
 
 **[NOTICE]** You need to call `cleanUp()` if the whole training is ended.
 
-### Folder structure
+### Folder Structure
 Make sure the folder structure of the environment interface is like this
 
 ```
@@ -173,7 +173,7 @@ export DISPLAY=99:
 th test.lua
 ```
 
-### Options specification
+### Options Specification
 You can pass a table to the environment to configure the racing car environment:
 
 * `server`: bool value, set `true` to run on a server
@@ -182,8 +182,8 @@ You can pass a table to the environment to configure the racing car environment:
 * `mkey`: integer, the key to set up memory sharing. Different running environment should have different mkey
 * `auto_back`: bool value,  set `false` to disable the car's ability to reverse its gear (for going backward)
 
-### Multithread example
-See `torcs_test.lua`.
+### Multithread Example
+See [torcs_test.lua](torcs_test.lua).
 
 ### Action Space
 We provide environments with two different action spaces. Note that different action space should choose different types of game configurations respectively (see [Further Customization](https://github.com/YurongYou/rlTORCS#optional-further-customization) section below for explanations on game configuration).
