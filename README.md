@@ -1,4 +1,7 @@
 # TORCS for Reinforcement Learning
+
+[toc]
+
 [TORCS (The Open Racing Car Simulator)](http://torcs.sourceforge.net/) is a famous open-source racing car simulator, which provides a realistic physical racing environment and a set of highly customizable API. But it is not so convenient to train an RL model in this environment, for it does not provide visual API and typically needs to go through a GUI MANU to start the game. 
 
 This is a modified version of TORCS in order to suit the needs for deep reinforcement learning training **with visual observation**. Through this environment, researchers can easily train deep reinforcement learning models on TORCS via a Lua [interface](https://github.com/Kaixhin/rlenvs#api) (Python interface might also be supported soon).
@@ -331,8 +334,8 @@ You can generate the corresponding `xxx.xml` game configuration file in the foll
 4. click `accept`s
 5. In `~/.torcs/config/raceman` there is a file `quickrace.xml`, which is the corresponding game configuration file.
 
-### Visual Input Semantic Segmentation
-To obtain the corresponding semantic segmentation of visual observation, we use some hacks stated below. Note that the modification should be done on 
+### Visual Semantic Segmentation
+To obtain the corresponding semantic segmentation of visual observation, we use some hacks stated below. **Note that the modification should be done on a track-by-track basis.**
 
 Related files: 
 
