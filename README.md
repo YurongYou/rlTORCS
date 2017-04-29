@@ -3,11 +3,6 @@
 <p align="center">
 	<img src ="assets/demo.gif" width="800" />
 </p>
-<!--<div style="text-align:center"></div>-->
-
-<!--<div style="float:left; margin:0 10px 10px 0" markdown="1">
-    ![](assets/demo.gif)
-</div>-->
 
 
 ## Table of Content
@@ -26,7 +21,7 @@
 	- [Action Space](#action-space)
 	- [Tracks](#tracks)
 	- [Reward](#reward)
-- [System Explanation in a Nutshell](#system-Explanation-in-a-nutshell)
+- [System Explanation in a Nutshell](#system-explanation-in-a-nutshell)
 	- [Agent-Environment Communication](#agent-environment-communication)
 - [Training results](#training-results)
 - [\[Optional\] Further Customization](#optional-further-customization)
@@ -386,7 +381,7 @@ Before the game start, load the modified 3D model. And when the game is running,
 **What (generally) you need to do to obtain the segmentation**:
 
 1. Uncomment the `define` line in [torcs-1.3.6/src/interfaces/collect_segmentation.h](torcs-1.3.6/src/interfaces/collect_segmentation.h).
-2. Generate the modified 3D model of the track. Duplicate the `.ac` file in the corresponding track folder ([torcs-1.3.6/data/tracks/*](torcs-1.3.6/data/tracks)), and change the texture mapping of the objects.
+2. Generate the modified 3D model of the track. Duplicate the `.ac` file in the corresponding track folder ([torcs-1.3.6/data/tracks/*](torcs-1.3.6/data/tracks)), and change the texture mapping of the objects. **Remember to add all your texture file into the `Makefile`**.
 3. Modify codes around `line 254` of [torcs-1.3.6/src/modules/graphic/ssggraph/grscene.cpp](torcs-1.3.6/src/modules/graphic/ssggraph/grscene.cpp) to load your modifed 3D model.
 4. Modify codes around `line 269` `grDrawScene` function of [torcs-1.3.6/src/modules/graphic/ssggraph/grscene.cpp](torcs-1.3.6/src/modules/graphic/ssggraph/grscene.cpp) to make the environment render different models according to `drawIndicator`.
 5. Modify codes around `line 857` in [torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp](torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp) to set `drawIndicator` to get different render result, store them in proper places.
