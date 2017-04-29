@@ -16,7 +16,7 @@ shift
 export OMP_NUM_THREADS=1
 
 if [[ "$TEST" == 'basic_test' ]]; then
-  th TORCS_env_test/TORCS_env_test.lua
+  th torcs_test.lua
 
 else
   echo "Invalid options"

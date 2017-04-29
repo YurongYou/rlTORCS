@@ -45,6 +45,10 @@
 #define image_height 480
 /////////////////////////////////// by Chenyi
 
+/////////////////////////////////// by yurong
+#include <collect_segmentation.h>
+/////////////////////////////////// end by yurong
+
 static double	msgDisp;
 static double	bigMsgDisp;
 
@@ -638,7 +642,7 @@ extern bool auto_back;
 extern int* pfrontCarNum_ghost;
 extern double* pfrontDist_ghost;
 
-extern bool isCollectSeg;
+// extern bool isCollectSeg;
 
 double* psteerCmd;
 double* paccelCmd;
@@ -682,6 +686,8 @@ ReOneStep(double deltaTimeIncrement)
 		pauto_back = auto_back;
 		pfrontCarNum = pfrontCarNum_ghost;
 		pfrontDist = pfrontDist_ghost;
+
+		printf("%d\n", pdata_remove_middle);
      }
 /////////////////////////// by Yurong
 	int i;
@@ -848,6 +854,7 @@ ReUpdate(void)
 				// usleep(100);
 				// glReadBuffer(GL_COLOR_ATTACHMENT0);
 #ifdef COLLECTSEG
+					printf("????\n");
 					drawIndicator = 3;
 					ReInfo->_reGraphicItf.refresh(ReInfo->s);
 					glReadPixels(0, 0, image_width, image_height, GL_RGB, GL_UNSIGNED_BYTE, (GLvoid*)pdata_remove_car);

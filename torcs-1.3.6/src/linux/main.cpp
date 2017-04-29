@@ -25,6 +25,7 @@
 #include <plib/ssg.h>
 #include <signal.h>
 #include <pthread.h>
+#include <collect_segmentation.h>
 //////////////////////////////////////////// end by yurong
 
 #include <tgfclient.h>
@@ -42,8 +43,7 @@
 //////////////////////////////////////////// by yurong
 bool isReGuiWithoutSelect = false;
 bool auto_back = false;
-// bool isCollectSeg = false;
-#define COLLECTSEG false
+// #define COLLECTSEG true
 //////////////////////////////////////////// end by yurong
 extern bool bKeepModules;
 static int key = 817;

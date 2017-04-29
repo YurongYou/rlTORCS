@@ -250,6 +250,7 @@ Details about the test:
 * threads: `12`
 * total steps: `2e7`
 * observation: gray scale visual input with resizing (`84x84`)
+* learning rate: `7e-5`
 
 ## [Optional] Further Customization
 In this section, I explain how I modify the environment. If you are not intended to further customize the environment, you can just skip this section.
@@ -324,13 +325,33 @@ See
 ### Customize the Race
 You can generate the corresponding `xxx.xml` game configuration file in the following way:
 
-1. enter `torcs` in cli to enter the game GUI MANU
-2. Configure race in `Race -> QuickRace -> Configure Race`. You can choose the tracks, robots. **Do select robot ficos_discrete/ficos_continuous**.
+1. Enter `torcs` in cli to enter the game GUI MANU
+2. Configure race in `Race -> QuickRace -> Configure Race`. You can choose the tracks, robots. **Do select robot ficos_discrete / ficos_continuous**.
 3. In `Race Distance` choose `10 km`
 4. click `accept`s
-5. In `~/.torcs/config/raveman` there is a file `quickrace.xml`, this is the corresponding game configuration file
+5. In `~/.torcs/config/raceman` there is a file `quickrace.xml`, which is the corresponding game configuration file.
 
 ### Visual Input Semantic Segmentation
+To obtain the corresponding semantic segmentation of visual observation, we use some hacks stated below. Note that the modification should be done on 
+
+Related files: 
+
+```lua
+torcs-1.3.6/src/interfaces/collect_segmentation.h
+-- compilation flag COLLECTSEG
+torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp
+-- write first person view image into the shared memory
+torcs-1.3.6/src/modules/graphic/ssggraph/grscene.cpp
+-- load different 3D models and control the rendering
+```
+
+In the shared memory, `data_remove_side`, `data_remove_middle` and `data_remove_car` are intended to store the visual observations with road shoulders, middle lane and cars removed respectively. **In such way, the difference between the original observation and the removed ones is the desired segmentation.**
+
+What you need to do to obtain segmentation:
+
+1. Uncomment the `define` line in `torcs-1.3.6/src/interfaces/collect_segmentation.h`
+2. 
+3. Reinstall TORCS
 
 ## Reference 
 * [DeepDriving from Princeton](http://deepdriving.cs.princeton.edu/): the memory sharing scheme of this training environment is the same with this project.

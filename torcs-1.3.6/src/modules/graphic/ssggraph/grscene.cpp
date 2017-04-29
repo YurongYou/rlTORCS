@@ -49,6 +49,10 @@
 #include "grssgext.h"
 #include "grtexture.h"
 
+/////////////////////////////////// by yurong
+#include <collect_segmentation.h>
+/////////////////////////////////// end by yurong
+
 
 int grWrldX;
 int grWrldY;
