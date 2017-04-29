@@ -1,6 +1,11 @@
 # TORCS for Reinforcement Learning
 
-![](assets/demo.gif)
+<div style="text-align:center"><img src ="assets/demo.gif" width="800" /></div>
+
+<!--<div style="float:left; margin:0 10px 10px 0" markdown="1">
+    ![](assets/demo.gif)
+</div>-->
+
 
 ## Table of Content
 
