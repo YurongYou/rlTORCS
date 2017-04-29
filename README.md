@@ -2,34 +2,30 @@
 
 ## Table of Content
 
-<!-- MarkdownTOC -->
-
-- [Overview](#Overview)
-- Environment Specification
-- System Requirements
-- IMPORTANT!!
-- Installation
-- Interface Specification
-	- Folder structure
-	- Basic Usage \(on a desktop ubuntu\)
-	- Basic Usage \(on a server ubuntu\)
-	- Options specification
-	- Multithread example
-	- Action Space
-	- Tracks
-	- Reward
-- System Explanation in a Nutshell
-	- Agent-Environment Communication
-- Training results
-- \[Optional\] Further Customization
-	- Skip the GUI MANU
-	- Memory Sharing Details
-	- Obtain the First Person View
-	- Customize the Race
-	- Visual Semantic Segmentation
-- Reference
-
-<!-- /MarkdownTOC -->
+- [Overview](overview)
+- [Environment Specification](environment-specification)
+- [System Requirements](system-requirements)
+- [IMPORTANT!!](important)
+- [Installation](installation)
+- [Interface Specification](interface-specification)
+	- [Folder structure](folder-structure)
+	- [Basic Usage \(on a desktop ubuntu\)](basic-usage-on-a-desktop-ubuntu)
+	- [Basic Usage \(on a server ubuntu\)](basic-usage-on-a-server-ubuntu)
+	- [Options specification](options-specification)
+	- [Multithread example](multithread-example)
+	- [Action Space](action-space)
+	- [Tracks](tracks)
+	- [Reward](reward)
+- [System Explanation in a Nutshell](system-Explanation-in-a-nutshell)
+	- [Agent-Environment Communication](agent-environment-communication)
+- [Training results](training-results)
+- [\[Optional\] Further Customization](optional-further-customization)
+	- [Skip the GUI MANU](skip-the-gui-manu)
+	- [Memory Sharing Details](memory-sharing-details)
+	- [Obtain the First Person View](obtain-the-first-person-view)
+	- [Customize the Race](customize-the-race)
+	- [Visual Semantic Segmentation](visual-semantic-segmentation)
+- [Reference](reference)
 
 
 ## Overview
