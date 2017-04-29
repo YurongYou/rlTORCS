@@ -77,7 +77,7 @@ After installation, in command line, type `torcs` (`xvfb-run -s "-screen 0 640x4
 ## Interface Specification
 The overall interface of this environment follows https://github.com/Kaixhin/rlenvs#api
 
-**[NOTICE]** You need to call `cleanUp()` if the whole training is ended.
+**[NOTICE]** You need to call `cleanUp()` if the whole training  ends.
 
 ### Folder Structure
 Make sure the folder structure of the environment interface is like this
@@ -129,7 +129,7 @@ env:cleanUp()
 ### Basic Usage (on a server ubuntu)
 Before running the environment, run this in a terminal window:
 
-```
+```bash
 ./xvfb_init.sh 99
 ```
 Then a xvfb is set up on display port 99, allowing at most 14 TORCS environment simultaneously running on this xvfb
@@ -186,7 +186,7 @@ You can pass a table to the environment to configure the racing car environment:
 See [torcs_test.lua](torcs_test.lua).
 
 ### Action Space
-We provide environments with two different action spaces. Note that different action space should choose different types of game configurations respectively (see [Further Customization](https://github.com/YurongYou/rlTORCS#optional-further-customization) section below for explanations on game configuration).
+We provide environments with two different action spaces. Note that different action space should choose different types of game configurations respectively (see [Further Customization](#optional-further-customization) section below for explanations on game configuration).
 
 In original torcs, the driver can have controls on four different actions:
 
@@ -195,7 +195,7 @@ In original torcs, the driver can have controls on four different actions:
 * **steer**: a real value ranging from `[-1, 1]`. `-1` for full left-turn, `1` for full right-turn
 * **gear**:	a integer ranging from `[-1, 6]`. `-1` for going backward.
 
-The following is my customization, you can customize the action space by yourself (see [Further Customization](https://github.com/YurongYou/rlTORCS#optional-further-customization) section).
+The following is my customization, you can customize the action space by yourself (see [Further Customization](#optional-further-customization) section).
 
 #### Discrete Action Space (`TORCS/TorcsDiscrete.lua`)
 This environment has a discrete action space:
@@ -212,7 +212,7 @@ This environment has a discrete action space:
 9 : brake = 1, throttle = 0, steer = -1
 ```
 
-The corresponding driver controlled by this environment is `torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp`. Note that the action will be performed in a gradually changing way, e.g., if the current throttle command of the driver is `0` while the action is `2`, then the actual action will be some value between `0` and `1`. Such customization mimics the way a human controls a car using a keyboard. See `torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp:drive` for more details.
+The corresponding driver controlled by this environment is [torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp](torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp). Note that the action will be performed in a gradually changing way, e.g., if the current throttle command of the driver is `0` while the action is `2`, then the actual action will be some value between `0` and `1`. Such customization mimics the way a human controls a car using a keyboard. See [torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp:drive](torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp:drive) for more details.
 
 
 #### Continuous Action Space (`TORCS/TorcsContinuous.lua`)
@@ -238,7 +238,7 @@ There are two dimensions of continuous actions in this environment:
 * gear changes automatically
 
 ### Tracks
-You can customize the racing track by the way stated in `Customize the Race` section. Here we provide some game configuration on different tracks, see `*.xml` files, which are named in format `quickrace_<discrete|continuous>_<single|multi>_<trackname>.xml`, in the `game_config` folder.
+You can customize the racing track by the way stated in [Customize the Race](#customize-the-race) section. Here we provide some game configuration on different tracks, see `*.xml` files, which are named in format `quickrace_<discrete|continuous>_<single|multi>_<trackname>.xml`, in the `game_config` folder.
 
 ### Reward
 You can modify the original reward function of the environment by override `reward()` function, as in `TorcsDiscreteConstDamagePos`.
@@ -246,7 +246,7 @@ You can modify the original reward function of the environment by override `rewa
 ## System Explanation in a Nutshell
 In this section, we briefly explain how the racing car environment works.
 
-In TORCS environment, when the game is running, it actually maintains a state machine (see `torcs-1.3.6/src/libs/raceengineclient/racestate.cpp`). On each update of the the state (in `500` Hz), the underlying physical states are updated (e.g. update each cars' speed according to its previous speed and acceleration, etc.), and in `50` Hz, each of car drivers is queried for actions. Drivers can have access to a variety of information (e.g. speed, distance, etc.) to decide what action it will take (i.e. decide the value of `throttle`, `brake`, `steer`, `gear`, etc.). You can refer to [this](http://www.berniw.org/tutorials/robot/tutorial.html) on how to customize drivers.
+In TORCS environment, when the game is running, it actually maintains a state machine (see [torcs-1.3.6/src/libs/raceengineclient/racestate.cpp](torcs-1.3.6/src/libs/raceengineclient/racestate.cpp)). On each update of the the state (in `500` Hz), the underlying physical states are updated (e.g. update each cars' speed according to its previous speed and acceleration, etc.), and in `50` Hz, each of car drivers is queried for actions. Drivers can have access to a variety of information (e.g. speed, distance, etc.) to decide what action it will take (i.e. decide the value of `throttle`, `brake`, `steer`, `gear`, etc.). You can refer to [this](http://www.berniw.org/tutorials/robot/tutorial.html) on how to customize drivers.
 
 ### Agent-Environment Communication
 To make it possible to run RL model in torch or python, we use memory sharing method to set up IPC between the environment and the model (thanks to [DeepDriving from Princeton](http://deepdriving.cs.princeton.edu/)).
@@ -288,25 +288,21 @@ In this section, I explain how I modify the environment. If you are not intended
 All modifications on the original TORCS source code are indicated by a `yurong` marker.
 
 ### Skip the GUI MANU
-Related files: `torcs-1.3.6/src/main.cpp` and `torcs-1.3.6/src/libs/raceengineclient/raceinit.cpp`
+Related files: 
+
+* [torcs-1.3.6/src/main.cpp](torcs-1.3.6/src/main.cpp) 
+* [torcs-1.3.6/src/libs/raceengineclient/raceinit.cpp](torcs-1.3.6/src/libs/raceengineclient/raceinit.cpp)
 
 Run `torcs _rgs <path to game configuration file>` then the race is directly set up and begin running.
 
 ### Memory Sharing Details
 Related files:
 
-```lua
-torcs-1.3.6/src/main.cpp
--- set up memory sharing
-torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp
--- forward the pointers, write first person view image into the shared memory
-torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp
--- receive command from the shared memory, write race information
-torcs-1.3.6/src/drivers/ficos_continuous/ficos_continuous.cpp
--- receive command from the shared memory, write race information
-TORCS/TORCSctrl.cpp
--- manage communication between lua and C++
-```
+* [torcs-1.3.6/src/main.cpp](torcs-1.3.6/src/main.cpp) -- set up memory sharing
+* [torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp](torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp) -- forward the pointers, write first person view image into the shared memory
+* [torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp](torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp) -- receive command from the shared memory, write race information
+* [torcs-1.3.6/src/drivers/ficos_continuous/ficos_continuous.cpp](torcs-1.3.6/src/drivers/ficos_continuous/ficos_continuous.cpp) -- receive command from the shared memory, write race information
+* [TORCS/TORCSctrl.cpp](TORCS/TORCSctrl.cpp) -- manage communication between lua and C++
 
 Memory sharing structure
 
@@ -344,7 +340,7 @@ To specify the memory sharing key:
 * In lua interface: `opt.mkey = <key>`
 
 ### Obtain the First Person View
-Related file: `torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp`.
+Related file: [torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp](torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp).
 
 See
 
@@ -366,22 +362,35 @@ To obtain the corresponding semantic segmentation of visual observation, we use 
 
 Related files:
 
-```lua
-torcs-1.3.6/src/interfaces/collect_segmentation.h
--- compilation flag COLLECTSEG
-torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp
--- write first person view image into the shared memory
-torcs-1.3.6/src/modules/graphic/ssggraph/grscene.cpp
--- load different 3D models and control the rendering
-```
 
-In the shared memory, `data_remove_side`, `data_remove_middle` and `data_remove_car` are intended to store the visual observations with road shoulders, middle lane and cars removed respectively. **In such way, the difference between the original observation and the removed ones is the desired segmentation.**
+* [torcs-1.3.6/src/interfaces/collect_segmentation.h](torcs-1.3.6/src/interfaces/collect_segmentation.h) -- compile flag COLLECTSEG
+* [torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp](torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp) -- write first person view image into the shared memory
+* [torcs-1.3.6/src/modules/graphic/ssggraph/grscene.cpp](torcs-1.3.6/src/modules/graphic/ssggraph/grscene.cpp) -- load different 3D models and control the rendering
 
-What you need to do to obtain segmentation:
+In the shared memory, `data_remove_side`, `data_remove_middle` and `data_remove_car` are intended to store the visual observations with road shoulders, middle lane and cars removed respectively for track [torcs-1.3.6/data/tracks/road/Ushite-city](torcs-1.3.6/data/tracks/road/Ushite-city). **In such way, the difference between the original observation and the removed ones is the desired segmentation.**
 
-1. Uncomment the `define` line in `torcs-1.3.6/src/interfaces/collect_segmentation.h`
-2.
-3. Reinstall TORCS
+To obtain visual observations with some parts removed, we use a pre-generated 3D model (`.ac` files) where the corresponding part's texture mapping is changed, for example, if we want to obtain visual observations with the middle of the lane marks removed, we need to generate a new 3D model where the texture mapping of the surface of the road is change into another picture.
+
+Before the game start, load the modified 3D model. And when the game is running, we can first render the original observation using the original 3D model, then switch to the modified 3D model to obtain the observation with some parts removed. [Related file: [torcs-1.3.6/src/modules/graphic/ssggraph/grscene.cpp](torcs-1.3.6/src/modules/graphic/ssggraph/grscene.cpp)]
+
+**What (generally) you need to do to obtain the segmentation**:
+
+1. Uncomment the `define` line in [torcs-1.3.6/src/interfaces/collect_segmentation.h](torcs-1.3.6/src/interfaces/collect_segmentation.h).
+2. Generate the modified 3D model of the track. Duplicate the `.ac` file in the corresponding track folder ([torcs-1.3.6/data/tracks/*](torcs-1.3.6/data/tracks)), and change the texture mapping of the objects.
+3. Modify codes around `line 254` of [torcs-1.3.6/src/modules/graphic/ssggraph/grscene.cpp](torcs-1.3.6/src/modules/graphic/ssggraph/grscene.cpp) to load your modifed 3D model.
+4. Modify codes around `line 269` `grDrawScene` function of [torcs-1.3.6/src/modules/graphic/ssggraph/grscene.cpp](torcs-1.3.6/src/modules/graphic/ssggraph/grscene.cpp) to make the environment render different models according to `drawIndicator`.
+5. Modify codes around `line 857` in [torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp](torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp) to set `drawIndicator` to get different render result, store them in proper places.
+6. Reinstall TORCS with `sudo ./install.sh`
+7. Start the environment with corresponding game configuration `.xml` file. In the Lua interface, call `env:getDisplay(choose)` to obtain observations with different parts removed. In current implementation for track [torcs-1.3.6/data/tracks/road/Ushite-city](torcs-1.3.6/data/tracks/road/Ushite-city):
+	
+	```lua
+	0: original RGB observation
+	1: RGB observation with road shoulders removed
+	2: RGB observation with middle lane-marks removed
+	3: RGB observation with cars removed
+	```
+
+8. Take the difference between the observation with different parts removed and the original observation, and pixels where the difference is large is where the corresponding parts locate.
 
 ## Reference
 * [DeepDriving from Princeton](http://deepdriving.cs.princeton.edu/): the memory sharing scheme of this training environment is the same with this project.

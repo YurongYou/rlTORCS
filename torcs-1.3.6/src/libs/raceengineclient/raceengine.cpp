@@ -854,7 +854,6 @@ ReUpdate(void)
 				// usleep(100);
 				// glReadBuffer(GL_COLOR_ATTACHMENT0);
 #ifdef COLLECTSEG
-					printf("????\n");
 					drawIndicator = 3;
 					ReInfo->_reGraphicItf.refresh(ReInfo->s);
 					glReadPixels(0, 0, image_width, image_height, GL_RGB, GL_UNSIGNED_BYTE, (GLvoid*)pdata_remove_car);
