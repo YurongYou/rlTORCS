@@ -1,8 +1,39 @@
 # TORCS for Reinforcement Learning
 
-[toc]
+## Table of Content
 
-[TORCS (The Open Racing Car Simulator)](http://torcs.sourceforge.net/) is a famous open-source racing car simulator, which provides a realistic physical racing environment and a set of highly customizable API. But it is not so convenient to train an RL model in this environment, for it does not provide visual API and typically needs to go through a GUI MANU to start the game. 
+<!-- MarkdownTOC -->
+
+- [Overview](#Overview)
+- Environment Specification
+- System Requirements
+- IMPORTANT!!
+- Installation
+- Interface Specification
+	- Folder structure
+	- Basic Usage \(on a desktop ubuntu\)
+	- Basic Usage \(on a server ubuntu\)
+	- Options specification
+	- Multithread example
+	- Action Space
+	- Tracks
+	- Reward
+- System Explanation in a Nutshell
+	- Agent-Environment Communication
+- Training results
+- \[Optional\] Further Customization
+	- Skip the GUI MANU
+	- Memory Sharing Details
+	- Obtain the First Person View
+	- Customize the Race
+	- Visual Semantic Segmentation
+- Reference
+
+<!-- /MarkdownTOC -->
+
+
+## Overview
+[TORCS (The Open Racing Car Simulator)](http://torcs.sourceforge.net/) is a famous open-source racing car simulator, which provides a realistic physical racing environment and a set of highly customizable API. But it is not so convenient to train an RL model in this environment, for it does not provide visual API and typically needs to go through a GUI MANU to start the game.
 
 This is a modified version of TORCS in order to suit the needs for deep reinforcement learning training **with visual observation**. Through this environment, researchers can easily train deep reinforcement learning models on TORCS via a Lua [interface](https://github.com/Kaixhin/rlenvs#api) (Python interface might also be supported soon).
 
@@ -33,11 +64,11 @@ This repository contains
 ## IMPORTANT!!
 * If you want to run this environment on a server (without display device) with Nvidia graphic cards, **please make sure your Nvidia drivers are installed with flag `--no-opengl-files`**! (otherwise, there will be problems when using xvfb, see [this](https://davidsanwald.github.io/2016/11/13/building-tensorflow-with-gpu-support.html))
 * In order to correctly install the dependency packages and if you are using a desktop version of Ubuntu, please go to *System Settings -> Software & Updates* and tick the *source code* checkbox before installation, or you should modify your `/etc/apt/sources.list`.
-* If your server is Ubuntu 14.04, please do 
-	
+* If your server is Ubuntu 14.04, please do
+
 		cd torcs-1.3.6
 		./configure --disable-xrandr
-	
+
 	before installation, otherwise, there will also be some problems when using xvfb.
 
 ## Installation
@@ -90,7 +121,7 @@ repeat
 		reward, observation, terminal = env:step(doSomeActions(state))
 		nowstep = nowstep + 1
 	until terminal
-		
+
 	if terminal then
 		reward, terminal, state = 0, false, env:start()
 	end
@@ -130,7 +161,7 @@ repeat
 		reward, observation, terminal = env:step(doSomeActions(state))
 		nowstep = nowstep + 1
 	until terminal
-		
+
 	if terminal then
 		reward, terminal, state = 0, false, env:start()
 	end
@@ -192,7 +223,7 @@ The corresponding driver controlled by this environment is `torcs-1.3.6/src/driv
 There are two dimensions of continuous actions in this environment:
 
 * **brake/throttle**: a real value ranging from `[-1, 1]`. `-1` for full brake, `1` for full throttle, i.e.
-	
+
 	```
 	if action[1] > 0 then
 		throttle = action[1]
@@ -266,18 +297,18 @@ Related files: `torcs-1.3.6/src/main.cpp` and `torcs-1.3.6/src/libs/raceenginecl
 Run `torcs _rgs <path to game configuration file>` then the race is directly set up and begin running.
 
 ### Memory Sharing Details
-Related files: 
+Related files:
 
 ```lua
-torcs-1.3.6/src/main.cpp 
+torcs-1.3.6/src/main.cpp
 -- set up memory sharing
-torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp 
+torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp
 -- forward the pointers, write first person view image into the shared memory
-torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp 
+torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp
 -- receive command from the shared memory, write race information
-torcs-1.3.6/src/drivers/ficos_continuous/ficos_continuous.cpp 
+torcs-1.3.6/src/drivers/ficos_continuous/ficos_continuous.cpp
 -- receive command from the shared memory, write race information
-TORCS/TORCSctrl.cpp 
+TORCS/TORCSctrl.cpp
 -- manage communication between lua and C++
 ```
 
@@ -337,7 +368,7 @@ You can generate the corresponding `xxx.xml` game configuration file in the foll
 ### Visual Semantic Segmentation
 To obtain the corresponding semantic segmentation of visual observation, we use some hacks stated below. **Note that the modification should be done on a track-by-track basis.**
 
-Related files: 
+Related files:
 
 ```lua
 torcs-1.3.6/src/interfaces/collect_segmentation.h
@@ -353,13 +384,13 @@ In the shared memory, `data_remove_side`, `data_remove_middle` and `data_remove_
 What you need to do to obtain segmentation:
 
 1. Uncomment the `define` line in `torcs-1.3.6/src/interfaces/collect_segmentation.h`
-2. 
+2.
 3. Reinstall TORCS
 
-## Reference 
+## Reference
 * [DeepDriving from Princeton](http://deepdriving.cs.princeton.edu/): the memory sharing scheme of this training environment is the same with this project.
 * [Custom RL environment](https://github.com/Kaixhin/rlenvs#api)
 * [Implementations of Several Deep Reinforcement Learning Algorithm](https://github.com/Kaixhin/Atari)
-* [Asynchronous Methods for Deep Reinforcement Learning](http://arxiv.org/abs/1602.01783)  
+* [Asynchronous Methods for Deep Reinforcement Learning](http://arxiv.org/abs/1602.01783)
 
 
