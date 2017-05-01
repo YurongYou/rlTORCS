@@ -288,7 +288,7 @@ Details about the test:
 * learning rate: `7e-5`
 
 ## [Optional] Further Customization
-In this section, I explain how I modify the environment. If you are not intended to further customize the environment, you can just skip this section.
+In this section, I explain how I modify the environment. If you do not attempt to further customize the environment, you can just skip this section.
 
 All modifications on the original TORCS source code are indicated by a `yurong` marker.
 
