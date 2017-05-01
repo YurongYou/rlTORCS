@@ -298,16 +298,16 @@ Related files:
 * [torcs-1.3.6/src/main.cpp](torcs-1.3.6/src/main.cpp) 
 * [torcs-1.3.6/src/libs/raceengineclient/raceinit.cpp](torcs-1.3.6/src/libs/raceengineclient/raceinit.cpp)
 
-Run `torcs _rgs <path to game configuration file>` then the race is directly set up and begin running.
+Run `torcs _rgs <path to game configuration file>` then the race is directly set up and begins running.
 
 ### Memory Sharing Details
 Related files:
 
 * [torcs-1.3.6/src/main.cpp](torcs-1.3.6/src/main.cpp) -- set up memory sharing
-* [torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp](torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp) -- forward the pointers, write first person view image into the shared memory
-* [torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp](torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp) -- receive command from the shared memory, write race information
-* [torcs-1.3.6/src/drivers/ficos_continuous/ficos_continuous.cpp](torcs-1.3.6/src/drivers/ficos_continuous/ficos_continuous.cpp) -- receive command from the shared memory, write race information
-* [TORCS/TORCSctrl.cpp](TORCS/TORCSctrl.cpp) -- manage communication between lua and C++
+* [torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp](torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp) -- forward pointers, write the first person view image into the shared memory
+* [torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp](torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp) -- receive commands from the shared memory, write race information
+* [torcs-1.3.6/src/drivers/ficos_continuous/ficos_continuous.cpp](torcs-1.3.6/src/drivers/ficos_continuous/ficos_continuous.cpp) -- receive commands from the shared memory, write race information
+* [TORCS/TORCSctrl.cpp](TORCS/TORCSctrl.cpp) -- manage the communication between lua and C++
 
 Memory sharing structure
 
@@ -354,10 +354,10 @@ See
 ```
 
 ### Customize the Race
-You can generate the corresponding `xxx.xml` game configuration file in the following way:
+You can generate a corresponding `xxx.xml` game configuration file by following way:
 
 1. Enter `torcs` in cli to enter the game GUI MANU
-2. Configure race in `Race -> QuickRace -> Configure Race`. You can choose the tracks, robots. **Do select robot ficos_discrete / ficos_continuous**.
+2. Configure the race in `Race -> QuickRace -> Configure Race`. You can choose tracks, robots. And **do select robot ficos_discrete / ficos_continuous**.
 3. In `Race Distance` choose `10 km`
 4. click `accept`s
 5. In `~/.torcs/config/raceman` there is a file `quickrace.xml`, which is the corresponding game configuration file.
@@ -372,7 +372,7 @@ Related files:
 * [torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp](torcs-1.3.6/src/libs/raceengineclient/raceengine.cpp) -- write first person view image into the shared memory
 * [torcs-1.3.6/src/modules/graphic/ssggraph/grscene.cpp](torcs-1.3.6/src/modules/graphic/ssggraph/grscene.cpp) -- load different 3D models and control the rendering
 
-In the shared memory, `data_remove_side`, `data_remove_middle` and `data_remove_car` are intended to store the visual observations with road shoulders, middle lane and cars removed respectively for track [torcs-1.3.6/data/tracks/road/Ushite-city](torcs-1.3.6/data/tracks/road/Ushite-city). **In such way, the difference between the original observation and the removed ones is the desired segmentation.**
+In the shared memory, `data_remove_side`, `data_remove_middle` and `data_remove_car` are intended to store visual observations with road shoulders, middle lane and cars removed respectively for track [torcs-1.3.6/data/tracks/road/Ushite-city](torcs-1.3.6/data/tracks/road/Ushite-city). **In such way, the difference between the original observation and the removed ones is the desired segmentation.**
 
 To obtain visual observations with some parts removed, we use a pre-generated 3D model (`.ac` files) where the corresponding part's texture mapping is changed, for example, if we want to obtain visual observations with the middle of the lane marks removed, we need to generate a new 3D model where the texture mapping of the surface of the road is change into another picture.
 
