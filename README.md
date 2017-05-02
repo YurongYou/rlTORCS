@@ -374,7 +374,7 @@ Related files:
 
 In the shared memory, `data_remove_side`, `data_remove_middle` and `data_remove_car` are intended to store visual observations with road shoulders, middle lane and cars removed respectively for track [torcs-1.3.6/data/tracks/road/Ushite-city](torcs-1.3.6/data/tracks/road/Ushite-city). **In such way, the difference between the original observation and the removed ones is the desired segmentation.**
 
-To obtain visual observations with some parts removed, we use a pre-generated 3D model (`.ac` files) where the corresponding part's texture mapping is changed, for example, if we want to obtain visual observations with the middle of the lane marks removed, we need to generate a new 3D model where the texture mapping of the surface of the road is change into another picture.
+To obtain visual observations with some parts removed, we use a pre-generated 3D model (`.ac` files) where the corresponding part's texture mapping is changed, for example, if we want to obtain visual observations with the middle of the lane marks removed, we need to generate a new 3D model where the texture mapping of the surface of the road is changed into another picture.
 
 Before the game start, load the modified 3D model. And when the game is running, we can first render the original observation using the original 3D model, then switch to the modified 3D model to obtain the observation with some parts removed. [Related file: [torcs-1.3.6/src/modules/graphic/ssggraph/grscene.cpp](torcs-1.3.6/src/modules/graphic/ssggraph/grscene.cpp)]
 
