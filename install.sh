@@ -24,22 +24,9 @@ sudo make datainstall
 cd ..
 printf "${LB}>> TORCS installed\n${NC}"
 
-# install torch packages
-printf "${LB}>> Begin installing lua packages\n${NC}"
-lua_packages=(luaposix logroll classic tds)
-for name in ${lua_packages[@]};
-do
-	printf "\t${LB}>> Try finding ${name}\n${NC}"
-	if ! $(luarocks list 2>/dev/null | grep ${name} >/dev/null); then
-		printf "\t${LB}>> Installing ${name}\n${NC}"
-		luarocks install ${name}
-	fi
-	printf "\t${LB}>> ${name} installed\n${NC}"
-done
-
 # compile torcs controller
 printf "${LB}>> Begin Compiling TORCSctrl.so \n${NC}"
-cd TORCS
+cd train_rl/TORCS
 make
-cd ..
+cd ../..
 printf "${LB}>> Compilation Finish\n${NC}"

@@ -19,7 +19,7 @@ TRACK     = Ushite-city
 
 DATADIR   = tracks/road/$(TRACK)
 
-DATA      = 1.rgb 2.rgb 3.rgb arch-g1SD-poutre1.rgb asphalt-tr-asphalt-l_nmm.rgb background.png barrier-armco2_arbor.rgb billboard-all-tune.rgb billboard-alp-torcs.rgb border-1.rgb building2.rgb building3.rgb generato-city_city.ac generato-city_city-elevation.png generato-city_city-object-map.png pattern.xml side-concdal.rgb terrain-maingrandstand.rgb Ushite-city.png Ushite-city.xml replace_side.png replace_middle.png black.png generato-city_city_replace_side.ac generato-city_city_replace_middle.ac
+DATA      = pylon1.rgb pylon2.rgb pylon3.rgb 1.rgb 2.rgb 3.rgb arch-g1SD-poutre1.rgb asphalt-tr-asphalt-l_nmm.rgb background.png barrier-armco2_arbor.rgb billboard-all-tune.rgb billboard-alp-torcs.rgb border-1.rgb building2.rgb building3.rgb generato-city_city.ac generato-city_city-elevation.png generato-city_city-object-map.png pattern.xml side-concdal.rgb terrain-maingrandstand.rgb Ushite-city.png Ushite-city.xml replace_side.png replace_middle.png black.png generato-city_city_replace_side.ac generato-city_city_replace_middle.ac
 
 data-tracks-road_PKGFILES	= $(DATA)
 

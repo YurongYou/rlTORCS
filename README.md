@@ -49,18 +49,30 @@ The original TORCS environment is modified in order to
 
 This environment interface is originally written for my RL research project, and I think open-sourcing this can make it much easier for current studies on both autonomous cars and reinforcement learning.
 
+**Update: training code uploaded!** Modified from [Atari](https://github.com/Kaixhin/Atari), See `./train_rl`.
+
 ## Environment Specification
 This repository contains
 
 * `torcs-1.3.6` the source code of a modified torcs-1.3.6
 * `TORCSctrl.cpp` a dynamic linking library for communications between RL models (in lua) and TORCS
-* `TORCS` the lua interfaces
+* `train_rl/TORCS` the lua interfaces
+* `train_rl` rl training code
 * `makefile` for compiling `TORCSctrl.so`
 * `install.sh` for installing torcs
 
 ## System Requirements
 * ubuntu 14.04+ (16.04 is preferable, see below)
 * [torch](http://torch.ch/)
+	* luasocket
+	* torchx
+	* itorch (https://github.com/facebookarchive/iTorch)
+	* nnlr
+	* dpnn
+	* luaposix
+	* logroll
+	* classic
+	* tds
 
 ## IMPORTANT!!
 * If you want to run this environment on a server (without display device) with Nvidia graphic cards, **please make sure your Nvidia drivers are installed with flag `--no-opengl-files`**! (otherwise, there will be problems when using xvfb, see [this](https://davidsanwald.github.io/2016/11/13/building-tensorflow-with-gpu-support.html))
@@ -202,7 +214,7 @@ In original torcs, the driver can have controls on four different actions:
 
 The following is my customization, you can customize the action space by yourself (see [Further Customization](#optional-further-customization) section).
 
-#### Discrete Action Space (`TORCS/TorcsDiscrete.lua`)
+#### Discrete Action Space (`train_rl/TORCS/TorcsDiscrete.lua`)
 This environment has a discrete action space:
 
 ```
@@ -220,7 +232,7 @@ This environment has a discrete action space:
 The corresponding driver controlled by this environment is [torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp](torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp). Note that the action will be performed in a gradually changing way, e.g., if the current throttle command of the driver is `0` while the action is `2`, then the actual action will be some value between `0` and `1`. Such customization mimics the way a human controls a car using a keyboard. See [torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp:drive](torcs-1.3.6/src/drivers/ficos_discrete/ficos_discrete.cpp:drive) for more details.
 
 
-#### Continuous Action Space (`TORCS/TorcsContinuous.lua`)
+#### Continuous Action Space (`train_rl/TORCS/TorcsContinuous.lua`)
 There are two dimensions of continuous actions in this environment:
 
 * **brake/throttle**: a real value ranging from `[-1, 1]`. `-1` for full brake, `1` for full throttle, i.e.
@@ -241,6 +253,18 @@ There are two dimensions of continuous actions in this environment:
 
 * There are hard-coded ABS and ASR strategies on corresponding drivers
 * gear changes automatically
+
+#### Training example
+Before running the environment, run this in a terminal window and keep it running:
+```
+./xvfb_init.sh 99
+```
+then
+```
+cd train_rl
+export DISPLAY=99:
+./run.sh train_TORCS_slowmulti_ushite_city_seed1
+```
 
 ### Tracks
 You can customize the racing track by the way stated in [Customize the Race](#customize-the-race) section. Here we provide some game configuration on different tracks, see `*.xml` files, which are named in format `quickrace_<discrete|continuous>_<single|multi>_<trackname>.xml`, in the `game_config` folder.
